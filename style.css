@@ -1,0 +1,43 @@
+:root{
+  --bg:#f3f4f6;
+  --card:#ffffff;
+  --accent:#2563eb;
+  --text:#111827;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background:var(--bg);
+  background-image: url(16_9.png);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+}
+header{position:absolute;top:24px;left:24px}
+main{
+  background:var(--card);
+  padding:28px 36px;
+  border-radius:12px;
+  box-shadow:0 6px 20px rgba(16,24,40,0.08);
+  text-align:center;
+  min-width:280px;
+}
+button{
+  background:var(--accent);
+  color:white;
+  border:0;
+  padding:10px 16px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+button.clicked{transform:translateY(-2px);box-shadow:0 6px 18px rgba(37,99,235,0.18)}
+@media (max-width:480px){
+  body{padding:16px}
+  main{padding:20px}
+}
