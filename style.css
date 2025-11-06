@@ -48,7 +48,7 @@ body {
   margin: 0 4px;
   box-sizing: border-box;
   position: relative;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .headerbtns:hover {
   transform: translateY(-4px);
@@ -96,4 +96,5 @@ body {
   font-weight: 300;
   text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
   text-align: center;
+
 }
