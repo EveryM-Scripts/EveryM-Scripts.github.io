@@ -8,7 +8,7 @@ html, body {
 body {
   margin: 0;
   font-family: "Anta", sans-serif;
-  background: linear-gradient(180deg, #1536ec, #000f50);
+  background: linear-gradient(180deg, #1e35ff, #000b3a);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -24,7 +24,8 @@ body {
   align-items: center;
   gap: 10px;
   padding: 6px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.514);
   border-radius: 22px;
   height: 36px;
   max-width: calc(100% - 64px);
@@ -47,10 +48,10 @@ body {
   margin: 0 4px;
   box-sizing: border-box;
   position: relative;
+  text-decoration: none;
 }
 .headerbtns:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
 }
 #text {
   position: absolute;
@@ -70,7 +71,29 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  background-image: url('1.png');
+  background-image: url('1 1.png');
   cursor: pointer;
-
+}
+#scriptstxt {
+  position: absolute;
+  top: 120px;
+  left: 913px;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 5.5rem;
+  font-weight: 500;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 1);
+  text-align: center;
+}
+#scriptsdsc {
+  position: absolute;
+  top: 270px;
+  width: 650px;
+  left: 913px;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+  text-align: center;
 }
