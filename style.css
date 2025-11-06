@@ -1,48 +1,75 @@
-:root{
-  --bg:#f3f4f6;
-  --card:#ffffff;
-  --accent:#2563eb;
-  --text:#111827;
+html, body {
+  height: auto;
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  background:var(--bg);
-  background-image: url(16_9.png);
-  background-size: 100%;
+
+body {
+  margin: 0;
+  font-family: "Anta", sans-serif;
+  background: linear-gradient(180deg, #1536ec, #000f50);
+  background-size: cover;
+  background-attachment: fixed;
   background-position: center;
+  color: var(--text);
+  padding: 32px;
+  box-sizing: border-box;
+}
+#headerbar {
+  position: absolute;
+  top: 24px;
+  left: 730px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 22px;
+  height: 36px;
+  max-width: calc(100% - 64px);
+}
+.headerbtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  padding: 0px 12px;
+  height: 32px;
+  color: white;
+  font-weight: 400;
+  cursor: pointer;
+  text-shadow: 0 0 4px rgba(255,255,255,0.6);
+  transition: transform .2s ease, box-shadow .2s ease;
+  font-size: 1rem;
+  background-color: rgba(0, 81, 255, 0.65);
+  border-radius: 14px;
+  margin: 0 4px;
+  box-sizing: border-box;
+  position: relative;
+}
+.headerbtns:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+#text {
+  position: absolute;
+  top: 240px;
+  left: 790px;
+  color: white;
+  font-size: 2rem;
+  font-weight: 800;
+}
+#homebtn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 70px;
+  border-radius: 25px;
+  height: 70px;
   background-repeat: no-repeat;
-  color:var(--text);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:32px;
+  background-size: contain;
+  background-position: center;
+  background-image: url('1 1.png');
+  cursor: pointer;
 }
-header{position:absolute;top:24px;left:24px}
-main{
-  background:var(--card);
-  padding:28px 36px;
-  border-radius:12px;
-  box-shadow:0 6px 20px rgba(16,24,40,0.08);
-  text-align:center;
-  min-width:280px;
-}
-button{
-  background:var(--accent);
-  color:white;
-  border:0;
-  padding:10px 16px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:600;
-  transition:transform .12s ease, box-shadow .12s ease;
-}
-button.clicked{transform:translateY(-2px);box-shadow:0 6px 18px rgba(37,99,235,0.18)}
-@media (max-width:480px){
-  body{padding:16px}
-  main{padding:20px}
-}
-
-
