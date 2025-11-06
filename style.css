@@ -11,6 +11,9 @@ body{
   font-family:Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   background:var(--bg);
   background-image: url(16_9.png);
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   color:var(--text);
   display:flex;
   align-items:center;
