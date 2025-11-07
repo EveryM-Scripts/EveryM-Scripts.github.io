@@ -8,14 +8,20 @@ html, body {
 body {
   margin: 0;
   font-family: "Anta", sans-serif;
-  background: linear-gradient(180deg, #1e35ff, #000b3a);
+  background: #000f2b;
   background-size: cover;
-  background-attachment: fixed;
   background-position: center;
+  background-attachment: scroll; 
   color: var(--text);
   padding: 32px;
   box-sizing: border-box;
+  position: fixed;
 }
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 #headerbar {
   position: absolute;
   top: 24px;
@@ -48,7 +54,7 @@ body {
   margin: 0 4px;
   box-sizing: border-box;
   position: relative;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 .headerbtns:hover {
   transform: translateY(-4px);
@@ -63,7 +69,7 @@ body {
 }
 #homebtn {
   position: absolute;
-  top: 24px;
+  top: 2400px;
   left: 24px;
   width: 70px;
   border-radius: 25px;
@@ -71,7 +77,6 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  background-image: url('1 1.png');
   cursor: pointer;
 }
 #scriptstxt {
@@ -96,5 +101,16 @@ body {
   font-weight: 300;
   text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
   text-align: center;
-
+}
+#background {
+  position: relative;
+  top: -32px;
+  left: -32px;
+  width: 1920px;
+  height: 1080px;
+  background: linear-gradient(180deg, #0011ff, #000f2b);
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll; 
+  z-index: -1;
 }
