@@ -7,13 +7,13 @@ html, body {
 
 body {
   margin: 0;
-  font-family: "Anta", sans-serif;
-  background: #000f2b;
+  font-family: "Golos Text", sans-serif;
+  background: #050c1f;
   background-size: cover;
   background-position: center;
   background-attachment: scroll; 
   color: var(--text);
-  padding: 32px;
+  padding: 0px;
   box-sizing: border-box;
   position: fixed;
 }
@@ -21,20 +21,34 @@ body::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
-
 #headerbar {
   position: absolute;
-  top: 24px;
-  left: 730px;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%) scale(1.2);
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 6px;
-  background: rgba(0, 0, 0, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.514);
+  background: rgba(0, 29, 90, 0.212);
   border-radius: 22px;
   height: 36px;
-  max-width: calc(100% - 64px);
+  max-width: 325px;
+  position: relative;
+  transform-origin: center;
+}
+#headerbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #2796ff, #43baff);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
 }
 .headerbtns {
   display: flex;
@@ -44,12 +58,12 @@ body::-webkit-scrollbar {
   padding: 0px 12px;
   height: 32px;
   color: white;
-  font-weight: 400;
+  font-weight: 520;
   cursor: pointer;
   text-shadow: 0 0 4px rgba(255,255,255,0.6);
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: 0.2s;
   font-size: 1rem;
-  background-color: rgba(0, 81, 255, 0.65);
+  background: rgba(19, 94, 255, 0.65);
   border-radius: 14px;
   margin: 0 4px;
   box-sizing: border-box;
@@ -62,7 +76,7 @@ body::-webkit-scrollbar {
 #text {
   position: absolute;
   top: 240px;
-  left: 790px;
+  left: 50%;
   color: white;
   font-size: 2rem;
   font-weight: 800;
@@ -82,11 +96,11 @@ body::-webkit-scrollbar {
 #scriptstxt {
   position: absolute;
   top: 120px;
-  left: 913px;
+  left: 50%;
   transform: translateX(-50%);
   color: white;
   font-size: 5.5rem;
-  font-weight: 500;
+  font-weight: 440;
   text-shadow: 0 0 6px rgba(255, 255, 255, 1);
   text-align: center;
 }
@@ -94,7 +108,7 @@ body::-webkit-scrollbar {
   position: absolute;
   top: 270px;
   width: 650px;
-  left: 913px;
+  left: 50%;
   transform: translateX(-50%);
   color: white;
   font-size: 2.5rem;
@@ -106,11 +120,76 @@ body::-webkit-scrollbar {
   position: relative;
   top: -32px;
   left: -32px;
-  width: 1920px;
+  width: 19200px;
   height: 1080px;
-  background: linear-gradient(180deg, #0011ff, #000f2b);
+  background: linear-gradient(180deg, #2b4cff 0%, #050c1f 100%);
   background-size: cover;
   background-position: center;
   background-attachment: scroll; 
   z-index: -1;
+}
+#background2 {
+  position: relative;
+  top: -132px;
+  left: -32px;
+  width: 19200px;
+  height: 1080px;
+  background: linear-gradient(180deg, #2b4cff 0%, #050c1f 100%);
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll; 
+  z-index: -1;
+}
+#background3 {
+  position: relative;
+  top: -162px;
+  left: -32px;
+  width: 19200px;
+  height: 1080px;
+  background: linear-gradient(180deg, #2b4cff 0%, #050c1f 100%);
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll; 
+  z-index: -1;
+}
+.scriptsearch {
+  width: 400px;
+  min-height: 32px;
+  padding: 14px 0px 7px 16px;
+  border: 2px solid #3287e9;
+  border-radius: 60px;
+  outline: none;
+  color: rgb(43, 128, 255);
+  font-size: 1.2rem;
+  font-weight: 500;
+  position: absolute;
+  left: 50%;
+  top: 420px;
+  transform: translateX(-50%);
+  transition: 0.3s;
+  text-shadow: 0 0 6px rgba(0, 76, 216, 0.4);
+  white-space: nowrap;
+}
+.scriptsearch:empty:before {
+  content: "Search Scripts";
+  color: rgb(43, 128, 255);
+}
+.scriptsearch:focus {
+  outline: none;
+  border-color: #3287e9;
+  color: rgb(43, 128, 255);
+  text-shadow: 0 0 6px rgba(56, 136, 255, 0.9);
+    box-shadow: 0 0 12px rgb(0, 89, 255),
+  inset 0 0 10px rgba(0, 89, 255, 0.8);
+}
+#docstxt {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 5.5rem;
+  font-weight: 500;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 1);
+  text-align: center;
 }
