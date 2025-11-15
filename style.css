@@ -15,7 +15,6 @@ body {
   color: var(--text);
   padding: 0px;
   box-sizing: border-box;
-  position: fixed;
 }
 body::-webkit-scrollbar {
   width: 0px;
@@ -25,53 +24,40 @@ body::-webkit-scrollbar {
   position: absolute;
   top: 30px;
   left: 50%;
-  transform: translateX(-50%) scale(1.2);
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 6px;
-  background: rgba(0, 29, 90, 0.212);
-  border-radius: 22px;
-  height: 36px;
-  max-width: 325px;
-  position: relative;
-  transform-origin: center;
+  gap: 20px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  height: 50px;
+  max-width: 400px;
+  z-index: 1;
 }
-#headerbar::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 2px;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #2796ff, #43baff);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-}
+
 .headerbtns {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 64px;
-  padding: 0px 12px;
-  height: 32px;
-  color: white;
-  font-weight: 520;
-  cursor: pointer;
-  text-shadow: 0 0 4px rgba(255,255,255,0.6);
-  transition: 0.2s;
-  font-size: 1rem;
-  background: rgba(19, 94, 255, 0.65);
-  border-radius: 14px;
-  margin: 0 4px;
-  box-sizing: border-box;
-  position: relative;
+  padding: 6px 16px;
+  color: #ffffffdd;
+  font-weight: 500;
+  font-size: 1.05rem;
+  border-radius: 20px;
   text-decoration: none;
+  transition: 0.25s;
+  position: relative;
 }
+
 .headerbtns:hover {
-  transform: translateY(-4px);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.headerbtns.active:hover {
+  color: #fff;
+  font-weight: 600;
 }
 #text {
   position: absolute;
@@ -80,6 +66,13 @@ body::-webkit-scrollbar {
   color: white;
   font-size: 2rem;
   font-weight: 800;
+}
+html {
+  scroll-behavior: smooth;
+}
+.fade-section {
+  opacity: 0;
+  transform: translateY(50px);
 }
 #homebtn {
   position: absolute;
@@ -100,7 +93,7 @@ body::-webkit-scrollbar {
   transform: translateX(-50%);
   color: white;
   font-size: 5.5rem;
-  font-weight: 440;
+  font-weight: 450;
   text-shadow: 0 0 6px rgba(255, 255, 255, 1);
   text-align: center;
 }
@@ -117,40 +110,34 @@ body::-webkit-scrollbar {
   text-align: center;
 }
 #background {
-  position: relative;
-  top: -32px;
-  left: -32px;
-  width: 19200px;
-  height: 1080px;
-  background: linear-gradient(180deg, #2b4cff 0%, #050c1f 100%);
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll; 
-  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1f1f2e, #050c1f 80%);
+  overflow: hidden;
+  z-index: -10;
 }
-#background2 {
-  position: relative;
-  top: -132px;
-  left: -32px;
-  width: 19200px;
-  height: 1080px;
-  background: linear-gradient(180deg, #2b4cff 0%, #050c1f 100%);
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll; 
-  z-index: -1;
+
+#background::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle at top left, rgba(40, 180, 255, 0.15), transparent 50%);
 }
-#background3 {
-  position: relative;
-  top: -162px;
-  left: -32px;
-  width: 19200px;
-  height: 1080px;
-  background: linear-gradient(180deg, #2b4cff 0%, #050c1f 100%);
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll; 
-  z-index: -1;
+
+#background::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.05), transparent 50%);
 }
 .scriptsearch {
   width: 400px;
@@ -182,7 +169,7 @@ body::-webkit-scrollbar {
     box-shadow: 0 0 12px rgb(0, 89, 255),
   inset 0 0 10px rgba(0, 89, 255, 0.8);
 }
-#docstxt {
+#supporttxt {
   position: absolute;
   top: 120px;
   left: 50%;
@@ -191,5 +178,122 @@ body::-webkit-scrollbar {
   font-size: 5.5rem;
   font-weight: 500;
   text-shadow: 0 0 6px rgba(255, 255, 255, 1);
+  text-align: center;
+}
+#homeline {
+  position: absolute;
+  bottom: 5px;
+  left: 34px;
+  width: 50px;
+  height: 4px;
+  background: #0db2ff;
+  box-shadow: 0 0 12px #0db2ff;
+  border-radius: 4px;
+  transition: 0.3s;
+  opacity: 0;
+}
+#scriptsline {
+  position: absolute;
+  bottom: 5px;
+  left: 136px;
+  width: 58px;
+  height: 4px;
+  background: #0db2ff;
+  box-shadow: 0 0 12px #0db2ff;
+  border-radius: 4px;
+  transition: 0.3s;
+  opacity: 0;
+}
+#docsline {
+  position: absolute;
+  bottom: 5px;
+  left: 241px;
+  width: 50px;
+  height: 4px;
+  background: #0db2ff;
+  box-shadow: 0 0 12px #0db2ff;
+  border-radius: 4px;
+  transition: 0.3s;
+  opacity: 0;
+}
+#supportline {
+  position: absolute;
+  bottom: 5px;
+  left: 338px;
+  width: 65px;
+  height: 4px;
+  background: #0db2ff;
+  box-shadow: 0 0 12px #0db2ff;
+  border-radius: 4px;
+  transition: 0.3s;
+  opacity: 0;
+}
+#underlines div.active {
+  opacity: 1;
+}
+#supportdsc {
+  position: absolute;
+  top: 270px;
+  width: 650px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 460;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+#discord-float-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -4;
+}
+
+.discord-logo {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: url('dclogo.png') no-repeat center/contain;
+  opacity: 0.8;
+}
+
+#discordjoin {
+  position: absolute;
+  top: 430px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 90px;
+  border-radius: 30px;
+  background-image: url('dclogo.png');
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: 12px 6px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: 0.23s;
+}
+
+#discordjoin:hover {
+  background-color: rgba(255, 255, 255, 0.065);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  transform: translateY(-2px) translateX(-50%);
+}
+#dcjoinbtn {
+  position: absolute;
+  top: 45px;
+  left: 133px;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 0 0 2px white;
+  font-size: 1.52rem;
+  font-weight: 600;
   text-align: center;
 }
