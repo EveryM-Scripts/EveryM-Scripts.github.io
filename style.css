@@ -1,5 +1,5 @@
 html, body {
-  height: auto;
+  height: 100%;
   min-height: 100%;
   width: 100%;
   overflow-x: hidden;
@@ -13,7 +13,11 @@ body {
   background-position: center;
   background-attachment: scroll; 
   color: var(--text);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
   padding: 0px;
+  cursor: default;  
   box-sizing: border-box;
 }
 body::-webkit-scrollbar {
@@ -21,7 +25,7 @@ body::-webkit-scrollbar {
   background: transparent;
 }
 #headerbar {
-  position: absolute;
+  position: fixed;
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
@@ -35,11 +39,11 @@ body::-webkit-scrollbar {
   box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   height: 50px;
   max-width: 400px;
-  z-index: 1;
+  z-index: 100;
 }
 
 .headerbtns {
-  padding: 6px 16px;
+  padding: 10px 16px;
   color: #ffffffdd;
   font-weight: 500;
   font-size: 1.05rem;
@@ -61,11 +65,14 @@ body::-webkit-scrollbar {
 }
 #text {
   position: absolute;
-  top: 240px;
+  top: 120px;
   left: 50%;
+  transform: translateX(-50%);
   color: white;
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 5.5rem;
+  font-weight: 450;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 1);
+  text-align: center;
 }
 html {
   scroll-behavior: smooth;
@@ -86,27 +93,16 @@ html {
   background-position: center;
   cursor: pointer;
 }
-#scriptstxt {
-  position: absolute;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 5.5rem;
-  font-weight: 450;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 1);
-  text-align: center;
-}
 #scriptsdsc {
   position: absolute;
-  top: 270px;
+  top: 220px;
   width: 650px;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
+  color: rgb(187, 233, 255);
   font-size: 2.5rem;
   font-weight: 300;
-  text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 4px rgb(139, 218, 255);
   text-align: center;
 }
 #background {
@@ -143,31 +139,33 @@ html {
   width: 400px;
   min-height: 32px;
   padding: 14px 0px 7px 16px;
-  border: 2px solid #3287e9;
+  border: 2px solid #4689d6;
   border-radius: 60px;
   outline: none;
-  color: rgb(43, 128, 255);
+  color: #4689d6;
   font-size: 1.2rem;
   font-weight: 500;
   position: absolute;
   left: 50%;
-  top: 420px;
+  top: 520px;
   transform: translateX(-50%);
   transition: 0.3s;
   text-shadow: 0 0 6px rgba(0, 76, 216, 0.4);
   white-space: nowrap;
+  z-index: 2;
+  cursor: text;
 }
 .scriptsearch:empty:before {
   content: "Search Scripts";
-  color: rgb(43, 128, 255);
+  color: #4689d6;
 }
 .scriptsearch:focus {
   outline: none;
-  border-color: #3287e9;
-  color: rgb(43, 128, 255);
-  text-shadow: 0 0 6px rgba(56, 136, 255, 0.9);
-    box-shadow: 0 0 12px rgb(0, 89, 255),
-  inset 0 0 10px rgba(0, 89, 255, 0.8);
+  border-color: #4689d6;
+  color: #4689d6;
+  text-shadow: 0 0 6px #2c84e9;
+    box-shadow: 0 0 12px #1884ff,
+  inset 0 0 10px #2182f0;
 }
 #supporttxt {
   position: absolute;
@@ -297,3 +295,181 @@ html {
   font-weight: 600;
   text-align: center;
 }
+#dsc { 
+  position: absolute;
+  top: 310px;
+  width: 950px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+#scriptscontainer {
+  position: absolute;
+  top: 500px;
+  height: 850px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1600px;
+  display: block;
+  gap: 20px;
+  backdrop-filter: blur(15px);
+  z-index: 1;
+  background-color: rgba(12, 12, 12, 0.4);
+  border-radius: 55px;
+  justify-content: center;
+}
+#filterbox {
+  position: absolute;
+  top: 0;
+  left: 200px;
+  transform: translateX(-50%);
+  width: 360px;
+  height: 850px;
+  background: rgba(5, 21, 51, 0.1);
+  border-radius: 55px 0 0 55px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  pointer-events: none;
+  z-index: 2;
+  justify-content: center;
+  padding: 20px;
+  column-gap: 10px;
+  row-gap: 0px;
+}
+.filteroption {
+  display: inline-block;
+  margin: 5px 5px; 
+  padding: 10px 18px;
+  border: 2px solid #4689d6;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.02);
+  font-size: 1rem;
+  color: #4689d6;
+  text-shadow: 0 0 4px rgba(0, 76, 216, 0.35);
+  transition: 0.2s;
+  pointer-events: auto;
+  cursor: pointer !important;
+  z-index: 5000;
+}
+.filteroption.active {
+  background-color: #2c84e9;
+  color:white;
+  border: 2px solid rgba(255, 255, 255, 0.548);
+  box-shadow: 0 0 12px #b9daff,
+}
+.filteroption.active:hover {
+  border-color: #a2daff;
+  color: #a2daff;
+  text-shadow: 0 0 6px a2daff;
+  box-shadow: 0 0 12px #a2daff,
+    inset 0 0 10px #a2daff;
+}
+.filteroption:hover {
+  border-color: #2c84e9;
+  color: #2c84e9;
+  text-shadow: 0 0 6px #2c84e9;
+  box-shadow: 0 0 12px #1884ff,
+    inset 0 0 10px #2182f0;
+    cursor: default;
+}
+#filtertitle {
+  width: 100px;
+  color: #4689d6;
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  position: relative;
+  left: -95px;
+  top: 10px;
+}
+#categorytitle {
+  width: 100%;
+  color: #4689d6;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  position: relative;
+  left: 35px;
+  top: -130px;
+}
+#categorybox {
+  width: 1100px;
+  height: 160px;
+  background: transparent;
+  border-radius: 0;
+  padding: 30px;
+  position: relative;
+  top: -340px;
+  overflow-y: hidden;
+  z-index: 10;
+  pointer-events: auto;
+}
+#everymmenu {
+  position: absolute;
+  top: 130px;
+  left: 600px;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  background: rgba(6, 7, 24, 0.329);
+  border-radius: 40px;
+  backdrop-filter: blur(15px);
+  cursor: pointer;
+  transition: 0.2s;
+}
+#everymmenu:hover {
+  transform: translateY(-4px) translateX(-50%);
+}
+#everymmenuimg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  border-radius: 25px;
+  height: 180px;
+  background: url('1 1.png') no-repeat center/contain;
+}
+.join {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background: transparent;
+  top: 400px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+#dcjoin {
+  position: absolute;
+  top: 550px;
+  left: 45.7%;
+  background-image: url('dclogo.png');
+  background-repeat: no-repeat;
+  background-size: 135%;
+  background-position: center;
+}
+
+#ytjoin {
+  position: absolute;
+  top: 550px;
+  left: 50.3%;
+  background-image: url('ytlogo.png');
+  background-repeat: no-repeat;
+  background-size: 135%;
+  background-position: center;
+}
+
+#dcjoin:hover, #ytjoin:hover {
+   transform: translateY(-4px);
+}
+

@@ -42,12 +42,19 @@ if (navMap[currentPage]) {
 
 Object.keys(navLines).forEach(linkId => {
   const link = document.getElementById(linkId);
-  link.addEventListener('click', () => {
+
+  link.addEventListener('click', e => {
+    if (navMap[currentPage] === linkId) {
+      e.preventDefault();
+      return;
+    }
+
     document.querySelectorAll('#underlines div').forEach(line => line.classList.remove('active'));
     const line = document.getElementById(navLines[linkId]);
     if (line) line.classList.add('active');
   });
 });
+
 
 window.addEventListener('scroll', () => {
   const sections = document.querySelectorAll('.fade-section');
@@ -64,44 +71,114 @@ window.addEventListener('scroll', () => {
 
 
 const container = document.getElementById('discord-float-container');
-const logoCount = 12;
-const logos = [];
 
-for (let i = 0; i < logoCount; i++) {
-  const logo = document.createElement('div');
-  logo.classList.add('discord-logo');
+if (container) {
+  const logoCount = 12;
+  const logos = [];
 
-  const size = Math.random() * 40 + 30;
-  logo.style.width = `${size}px`;
-  logo.style.height = `${size}px`;
+  for (let i = 0; i < logoCount; i++) {
+    const logo = document.createElement('div');
+    logo.classList.add('discord-logo');
 
-  logo.x = Math.random() * window.innerWidth;
-  logo.y = Math.random() * window.innerHeight;
-  logo.vx = (Math.random() - 0.5) * 0.3; // horizontal speed
-  logo.vy = (Math.random() - 0.5) * 0.3; // vertical speed
-  logo.rotation = Math.random() * 360;
-  logo.vr = (Math.random() - 0.5) * 0.2; // rotation speed
+    const size = Math.random() * 40 + 30;
+    logo.style.width = `${size}px`;
+    logo.style.height = `${size}px`;
 
-  container.appendChild(logo);
-  logos.push(logo);
+    logo.x = Math.random() * window.innerWidth;
+    logo.y = Math.random() * window.innerHeight;
+    logo.vx = (Math.random() - 0.5) * 0.3;
+    logo.vy = (Math.random() - 0.5) * 0.3;
+    logo.rotation = Math.random() * 360;
+    logo.vr = (Math.random() - 0.5) * 0.2;
+
+    container.appendChild(logo);
+    logos.push(logo);
+  }
+
+  function animate() {
+    logos.forEach(logo => {
+      logo.x += logo.vx;
+      logo.y += logo.vy;
+      logo.rotation += logo.vr;
+
+      if (logo.x > window.innerWidth) logo.x = 0;
+      if (logo.x < 0) logo.x = window.innerWidth;
+      if (logo.y > window.innerHeight) logo.y = 0;
+      if (logo.y < 0) logo.y = window.innerHeight;
+
+      logo.style.transform = `translate(${logo.x}px, ${logo.y}px) rotate(${logo.rotation}deg)`;
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
 }
 
-function animate() {
-  logos.forEach(logo => {
-    logo.x += logo.vx;
-    logo.y += logo.vy;
-    logo.rotation += logo.vr;
-
-    // wrap around screen edges
-    if (logo.x > window.innerWidth) logo.x = 0;
-    if (logo.x < 0) logo.x = window.innerWidth;
-    if (logo.y > window.innerHeight) logo.y = 0;
-    if (logo.y < 0) logo.y = window.innerHeight;
-
-    logo.style.transform = `translate(${logo.x}px, ${logo.y}px) rotate(${logo.rotation}deg)`;
+const discordJoinBtn = document.getElementById('discordjoin');
+if (discordJoinBtn) {
+  discordJoinBtn.addEventListener('click', () => {
+    window.location.href = 'https://discord.com/invite/zgcXpcfHbA';
   });
-
-  requestAnimationFrame(animate);
 }
 
-animate();
+const filters = document.querySelectorAll('.filteroption');
+
+filters.forEach(filter => {
+  filter.addEventListener('click', () => {
+    filter.classList.toggle('active');
+  });
+});
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll('.filteroption'); // Select filter buttons
+  const products = document.querySelectorAll('.product'); // Select all product elements
+  const selectedFilters = new Set(); // Set to hold selected filters
+
+  // Add event listeners for each filter button
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter'); // Get the category to filter by
+
+      // Toggle selected filter in the Set
+      if (filter === "all") {
+        // If "All" is clicked, show all products
+        if (selectedFilters.has("all")) {
+          selectedFilters.clear(); // Deselect "All"
+        } else {
+          selectedFilters.clear(); // Clear any other filters
+          selectedFilters.add("all"); // Select "All"
+        }
+      } else {
+        // Handle other filters (admin, vehicle, fun, etc.)
+        if (selectedFilters.has(filter)) {
+          selectedFilters.delete(filter); // Deselect the filter
+          button.classList.remove('active');
+        } else {
+          selectedFilters.add(filter); // Select the filter
+          button.classList.add('active');
+        }
+      }
+
+      // Loop through each product and check if it matches any selected category
+      products.forEach(product => {
+        const productCategories = product.getAttribute('data-category').split(' '); // Get categories as an array
+
+        // If "All" is selected, show all products
+        const matches = selectedFilters.has("all") || productCategories.some(category => selectedFilters.has(category));
+
+        if (matches) {
+          product.style.display = 'block'; // Show the product
+        } else {
+          product.style.display = 'none'; // Hide the product
+        }
+      });
+    });
+  });
+});
