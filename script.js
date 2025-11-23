@@ -182,3 +182,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+const dcjoin = document.getElementById('dcjoin');
+const ytjoin = document.getElementById('ytjoin');
+
+if (dcjoin) {
+    dcjoin.addEventListener('click', () => {
+        window.open("https://discord.com/invite/zgcXpcfHbA", "_blank");
+    });
+} 
+if (ytjoin) {
+    ytjoin.addEventListener('click', () => {
+        window.open("https://www.youtube.com/@everym-scripts", "_blank");
+    });
+}
+
+
+

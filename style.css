@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   min-height: 100%;
   width: 100%;
+  overflow-y: scroll;
   overflow-x: hidden;
 }
 
@@ -13,6 +14,8 @@ body {
   background-position: center;
   background-attachment: scroll; 
   color: var(--text);
+  overflow-x: hidden;
+  overflow-y: scroll;
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -20,10 +23,7 @@ body {
   cursor: default;  
   box-sizing: border-box;
 }
-body::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
+
 #headerbar {
   position: fixed;
   top: 30px;
@@ -35,13 +35,13 @@ body::-webkit-scrollbar {
   padding: 10px 20px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 30px;
-  backdrop-filter: blur(15px);
+
   box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   height: 50px;
   max-width: 400px;
+  backdrop-filter: url(#displacementFileter) blur(6px);
   z-index: 100;
 }
-
 .headerbtns {
   padding: 10px 16px;
   color: #ffffffdd;
@@ -436,40 +436,101 @@ html {
   height: 180px;
   background: url('1 1.png') no-repeat center/contain;
 }
-.join {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 15px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  background: transparent;
-  top: 400px;
-  cursor: pointer;
-  transition: 0.2s;
-}
+
 #dcjoin {
   position: absolute;
   top: 550px;
-  left: 45.7%;
-  background-image: url('dclogo.png');
-  background-repeat: no-repeat;
-  background-size: 135%;
+  left: 38%;
+  width: 200px;
+  height: 70px;
+  background-color: black;
   background-position: center;
+  border-radius: 100px;
+  transition: 0.23s;
+  border: 3px solid #0d76ff;
+  background-color: transparent;
+  box-shadow: 0 0 10px #0d76ff00, inset 0 0 10px #0d76ff00;
+  cursor: pointer;
+}
+#dclogo {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  background: url('dclogo.png') no-repeat center/contain;
+}
+#dcspan {
+  position: absolute;
+  top: 50%;
+  left: 130px;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 0 0 2px white;
+  font-size: 1.52rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 #ytjoin {
   position: absolute;
   top: 550px;
-  left: 50.3%;
-  background-image: url('ytlogo.png');
-  background-repeat: no-repeat;
-  background-size: 135%;
+  left: 50%;
+  width: 200px;
+  height: 70px;
+  background-color: black;
   background-position: center;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: 0.23s;
+  border: 3px solid #0d76ff;
+  background-color: transparent;
+  box-shadow: 0 0 10px #0d76ff00, inset 0 0 10px #0d76ff00;
 }
-
+#ytlogo {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  background: url('ytlogo.png') no-repeat center/contain;
+}
+#ytspan {
+  position: absolute;
+  top: 50%;
+  left: 130px;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 0 0 2px white;
+  font-size: 1.52rem;
+  font-weight: 600;
+  text-align: center;
+}
 #dcjoin:hover, #ytjoin:hover {
-   transform: translateY(-4px);
+   background-color: rgba(18, 22, 68, 0.4);
+   box-shadow: 0 0 10px #0d76ff, inset 0 0 10px #0d76ff;
 }
 
+
+::-webkit-scrollbar {
+  width: 12px;
+  transition: 0.2s;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3275f1;
+  border-radius: 6px;
+  border: 3px solid transparent;
+  transition: 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2558b8;
+  transition: 0.2s;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  transition: 0.2s;
+  border-radius: 60px;
+}
