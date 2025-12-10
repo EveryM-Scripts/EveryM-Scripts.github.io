@@ -43,6 +43,8 @@ if (navMap[currentPage]) {
 Object.keys(navLines).forEach(linkId => {
   const link = document.getElementById(linkId);
 
+  if (!link) return;
+
   link.addEventListener('click', e => {
     if (navMap[currentPage] === linkId) {
       e.preventDefault();
@@ -122,13 +124,7 @@ if (discordJoinBtn) {
   });
 }
 
-const filters = document.querySelectorAll('.filteroption');
-
-filters.forEach(filter => {
-  filter.addEventListener('click', () => {
-    filter.classList.toggle('active');
-  });
-});
+// simple toggle handlers removed: the DOMContentLoaded filter logic manages active state now
 
 
 
@@ -168,16 +164,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Loop through each product and check if it matches any selected category
       products.forEach(product => {
-        const productCategories = product.getAttribute('data-category').split(' '); // Get categories as an array
+        const prodAttr = product.getAttribute('data-category') || '';
+        const productCategories = prodAttr.split(/\s+/).filter(Boolean);
 
         // If "All" is selected, show all products
         const matches = selectedFilters.has("all") || productCategories.some(category => selectedFilters.has(category));
 
-        if (matches) {
-          product.style.display = 'block'; // Show the product
-        } else {
-          product.style.display = 'none'; // Hide the product
-        }
+        product.style.display = matches ? 'block' : 'none';
       });
     });
   });

@@ -11,6 +11,7 @@ body {
   font-family: "Golos Text", sans-serif;
   background: #050c1f;
   background-size: cover;
+  
   background-position: center;
   background-attachment: scroll; 
   color: var(--text);
@@ -530,7 +531,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(0, 0, 0, 0);
   transition: 0.2s;
   border-radius: 60px;
+}
+#constructionimg {
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  background: url('constructionimg.png') no-repeat center/contain;
 }
