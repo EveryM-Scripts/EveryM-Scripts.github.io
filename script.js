@@ -70,6 +70,110 @@ window.addEventListener('scroll', () => {
   });
 });
 
+// Animated Stats Counter
+const animateStats = () => {
+  const statNumbers = document.querySelectorAll('.stat-number');
+  
+  statNumbers.forEach(stat => {
+    const target = parseInt(stat.getAttribute('data-target'));
+    const increment = target / 100;
+    let current = 0;
+    
+    const updateCounter = () => {
+      if (current < target) {
+        current += increment;
+        stat.textContent = Math.ceil(current);
+        setTimeout(updateCounter, 20);
+      } else {
+        stat.textContent = target + (stat.parentElement.querySelector('.stat-label').textContent.includes('%') ? '%' : '+');
+      }
+    };
+    
+    // Start animation when element is in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          updateCounter();
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+    
+    observer.observe(stat);
+  });
+};
+
+// Initialize animations
+document.addEventListener('DOMContentLoaded', () => {
+  animateStats();
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Scroll Progress Bar
+  const scrollProgress = document.getElementById('scrollProgress');
+  if (scrollProgress) {
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercentage = (scrollTop / scrollHeight) * 100;
+      scrollProgress.style.width = scrollPercentage + '%';
+    });
+  }
+
+  // Parallax Effect
+  const parallaxElements = document.querySelectorAll('.parallax');
+  if (parallaxElements.length > 0) {
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      parallaxElements.forEach(element => {
+        const speed = element.dataset.speed || 0.5;
+        element.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    });
+  }
+
+  // Add loading states to buttons
+  const buttons = document.querySelectorAll('.product-btn, .contact-btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      if (!this.classList.contains('loading')) {
+        this.classList.add('loading');
+        this.innerHTML = '<span class="loading"></span> Loading...';
+        
+        // Simulate loading (remove in production)
+        setTimeout(() => {
+          this.classList.remove('loading');
+          this.innerHTML = this.textContent;
+        }, 1500);
+      }
+    });
+  });
+
+  // Enhanced hover effects for cards
+  const cards = document.querySelectorAll('.feature-card, .preview-card, .testimonial-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-10px) scale(1.02)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+});
+
 
 
 const container = document.getElementById('discord-float-container');
@@ -189,6 +293,29 @@ if (ytjoin) {
         window.open("https://www.youtube.com/@everym-scripts", "_blank");
     });
 }
+
+// FAQ Accordion functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    if (question) {
+      question.addEventListener('click', () => {
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+        
+        // Toggle current item
+        item.classList.toggle('active');
+      });
+    }
+  });
+});
 
 
 

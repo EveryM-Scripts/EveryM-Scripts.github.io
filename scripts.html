@@ -3,55 +3,181 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>EveryM | FiveM Scripts</title>
+  <title>EveryM | FiveM Scripts Shop</title>
+  <meta name="description" content="Browse our premium FiveM scripts collection. Admin tools, vehicle systems, UI enhancements and more.">
   <link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
 </head>
 <body>
 
+<div id="background"></div>
 
-
-  <h2 id="scriptsdsc">Developed for those who seek Functionality & Customization.</h2>
-  <div class="scriptsearch" contenteditable="true" spellcheck="false" data-placeholder="Search Scripts..."></div>
+<!-- Navigation -->
 <div id="headerbar">
     <a id="home" class="headerbtns" href="index.html">Home</a>
     <a id="scripts" class="headerbtns" href="scripts.html">Scripts</a>
     <a id="docs" class="headerbtns" href="docs.html">Docs</a>
     <a id="support" class="headerbtns" href="support.html">Support</a>
     <div id="underlines">
-            <div id="homeline"></div>
-            <div id="scriptsline"></div>
-            <div id="docsline"></div>
-            <div id="supportline"></div>
+        <div id="homeline"></div>
+        <div id="scriptsline"></div>
+        <div id="docsline"></div>
+        <div id="supportline"></div>
     </div>
 </div>
+
+<!-- Scripts Page Header -->
+<section class="scripts-header">
+  <div class="container">
+    <h1 id="scriptsdsc">Premium FiveM Scripts</h1>
+    <p class="scripts-subtitle">Developed for those who seek Functionality & Customization</p>
+    <div class="scriptsearch" contenteditable="true" spellcheck="false" data-placeholder="Search Scripts..."></div>
+  </div>
+</section>
+
+<!-- Scripts Container -->
 <div id="scriptscontainer">
+  <!-- Filter Section -->
   <div id="filterbox">
     <div id="filtertitle">Filters</div>
     <div id="categorytitle">Category</div>
     <div id="categorybox">
-          <div class="filteroption" id="categoryall" data-filter="all">All</div>
-    <div class="filteroption" id="categoryadmin" data-filter="admin">Admin</div>
-    <div class="filteroption" id="categoryvehicle" data-filter="vehicle">Vehicle</div>
-    <div class="filteroption" id="categoryfun" data-filter="fun">Fun</div>
-    <div class="filteroption" id="categoryui" data-filter="ui">UI</div>
-    <div class="filteroption" id="categoryutility" data-filter="utility">Utility</div>
-    <div class="filteroption" id="categoryother" data-filter="other">Other</div>
+      <div class="filteroption active" id="categoryall" data-filter="all">All</div>
+      <div class="filteroption" id="categoryadmin" data-filter="admin">Admin</div>
+      <div class="filteroption" id="categoryvehicle" data-filter="vehicle">Vehicle</div>
+      <div class="filteroption" id="categoryfun" data-filter="fun">Fun</div>
+      <div class="filteroption" id="categoryui" data-filter="ui">UI</div>
+      <div class="filteroption" id="categoryutility" data-filter="utility">Utility</div>
+      <div class="filteroption" id="categoryother" data-filter="other">Other</div>
     </div>
-
   </div>
+
+  <!-- Scripts Grid -->
   <div id="scriptsbox">
-    <div class="product" id="everymmenu" data-category="all ui">
-      <div id="everymmenuimg"></div>
+    <!-- Admin Menu Script -->
+    <div class="product" data-category="admin utility">
+      <div class="product-image">
+        <div class="product-preview" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);"></div>
+      </div>
+      <div class="product-content">
+        <h3>Advanced Admin Menu</h3>
+        <p class="product-description">Complete server management with intuitive interface and powerful tools</p>
+        <div class="product-features">
+          <span class="feature-tag">Player Management</span>
+          <span class="feature-tag">Server Tools</span>
+          <span class="feature-tag">Customizable</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$15.99</div>
+          <button class="product-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vehicle System Script -->
+    <div class="product" data-category="vehicle utility">
+      <div class="product-image">
+        <div class="product-preview" style="background: linear-gradient(135deg, #4ecdc4, #44a08d);"></div>
+      </div>
+      <div class="product-content">
+        <h3>Custom Vehicle System</h3>
+        <p class="product-description">Enhanced vehicle management with customization and tracking features</p>
+        <div class="product-features">
+          <span class="feature-tag">Vehicle Mods</span>
+          <span class="feature-tag">Garage System</span>
+          <span class="feature-tag">Performance</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$12.99</div>
+          <button class="product-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Economy Framework Script -->
+    <div class="product" data-category="utility other">
+      <div class="product-image">
+        <div class="product-preview" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+      </div>
+      <div class="product-content">
+        <h3>Economy Framework</h3>
+        <p class="product-description">Complete economic system with jobs, banking, and marketplace</p>
+        <div class="product-features">
+          <span class="feature-tag">Banking</span>
+          <span class="feature-tag">Jobs</span>
+          <span class="feature-tag">Market</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$19.99</div>
+          <button class="product-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- UI Enhancement Script -->
+    <div class="product" data-category="ui">
+      <div class="product-image">
+        <div class="product-preview" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
+      </div>
+      <div class="product-content">
+        <h3>Modern UI Framework</h3>
+        <p class="product-description">Beautiful and responsive user interface components for your server</p>
+        <div class="product-features">
+          <span class="feature-tag">Responsive</span>
+          <span class="feature-tag">Animated</span>
+          <span class="feature-tag">Customizable</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$8.99</div>
+          <button class="product-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fun Script -->
+    <div class="product" data-category="fun">
+      <div class="product-image">
+        <div class="product-preview" style="background: linear-gradient(135deg, #fa709a, #fee140);"></div>
+      </div>
+      <div class="product-content">
+        <h3>Fun Activities Pack</h3>
+        <p class="product-description">Collection of entertaining mini-games and activities for players</p>
+        <div class="product-features">
+          <span class="feature-tag">Mini Games</span>
+          <span class="feature-tag">Entertainment</span>
+          <span class="feature-tag">Interactive</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$6.99</div>
+          <button class="product-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- EveryM Menu -->
+    <div class="product" data-category="all ui">
+      <div class="product-image">
+        <div id="everymmenuimg"></div>
+      </div>
+      <div class="product-content">
+        <h3>EveryM Menu</h3>
+        <p class="product-description">Our flagship menu system with advanced features and beautiful design</p>
+        <div class="product-features">
+          <span class="feature-tag">Premium</span>
+          <span class="feature-tag">Feature Rich</span>
+          <span class="feature-tag">Professional</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$24.99</div>
+          <button class="product-btn">View Details</button>
+        </div>
+      </div>
     </div>
   </div>
-  
 </div>
-<div id="background"></div>
-
 
   <script src="script.js" defer></script>
 </body>

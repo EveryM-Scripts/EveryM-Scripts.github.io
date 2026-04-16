@@ -3,41 +3,247 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>EveryM | FiveM Scripts</title>
+  <title>EveryM | Premium FiveM Scripts</title>
+  <meta name="description" content="Premium FiveM scripts and resources for your server. Feature-rich, customizable, and professional solutions.">
   <link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
 </head>
 <body>
 
+<div id="background"></div>
 
-  <h1 id="text">EveryM Scripts</h1>
-  <h2 id="dsc">Feature rich, customizable FiveM scripts developed to give you the ultimate control.</h2>
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Navigation -->
 <div id="headerbar">
     <a id="home" class="headerbtns" href="index.html">Home</a>
     <a id="scripts" class="headerbtns" href="scripts.html">Scripts</a>
     <a id="docs" class="headerbtns" href="docs.html">Docs</a>
     <a id="support" class="headerbtns" href="support.html">Support</a>
     <div id="underlines">
-            <div id="homeline"></div>
-            <div id="scriptsline"></div>
-            <div id="docsline"></div>
-            <div id="supportline"></div>
+        <div id="homeline"></div>
+        <div id="scriptsline"></div>
+        <div id="docsline"></div>
+        <div id="supportline"></div>
     </div>
 </div>
-<div id="dcjoin">
-  <div id="dclogo"></div>
-  <span id="dcspan">Join</span>
-</div>
-<div id="ytjoin">
-  <div id="ytlogo"></div>
-  <span id="ytspan">Watch</span>
-</div>
-<div id="background"></div>
-<a id="homebtn" src="1 1.png" href="index.html"></a>
 
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 id="text">EveryM Scripts</h1>
+    <h2 id="dsc">Premium FiveM scripts that transform your server experience</h2>
+    <p id="hero-subtitle">Feature-rich, customizable solutions developed by professionals for the ultimate FiveM experience</p>
+    <div class="hero-buttons">
+      <a href="scripts.html" class="btn-primary">Browse Scripts</a>
+      <a href="#features" class="btn-secondary">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="floating-card">
+      <div class="card-preview"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats">
+  <div class="stats-container">
+    <div class="stat-item">
+      <div class="stat-number" data-target="50">0</div>
+      <div class="stat-label">Premium Scripts</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="1000">0</div>
+      <div class="stat-label">Happy Customers</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="24">0</div>
+      <div class="stat-label">Hour Support</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="99">0</div>
+      <div class="stat-label">Satisfaction %</div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features">
+  <div class="container">
+    <h2 class="section-title">Why Choose EveryM Scripts?</h2>
+    <div class="features-grid">
+      <div class="feature-card fade-section">
+        <div class="feature-icon"> bolt</div>
+        <h3>High Performance</h3>
+        <p>Optimized code that ensures smooth gameplay without server lag</p>
+      </div>
+      <div class="feature-card fade-section">
+        <div class="feature-icon"> settings</div>
+        <h3>Fully Customizable</h3>
+        <p>Easy configuration options to match your server's unique style</p>
+      </div>
+      <div class="feature-card fade-section">
+        <div class="feature-icon"> shield</div>
+        <h3>Secure & Reliable</h3>
+        <p>Built with security best practices and thoroughly tested</p>
+      </div>
+      <div class="feature-card fade-section">
+        <div class="feature-icon"> support_agent</div>
+        <h3>24/7 Support</h3>
+        <p>Expert assistance whenever you need help with our scripts</p>
+      </div>
+      <div class="feature-card fade-section">
+        <div class="feature-icon"> update</div>
+        <h3>Regular Updates</h3>
+        <p>Continuous improvements and new features based on feedback</p>
+      </div>
+      <div class="feature-card fade-section">
+        <div class="feature-icon"> group</div>
+        <h3>Community Driven</h3>
+        <p>Built by FiveM enthusiasts who understand your needs</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Popular Scripts Section -->
+<section class="popular-scripts">
+  <div class="container">
+    <h2 class="section-title">Featured Scripts</h2>
+    <div class="scripts-preview">
+      <div class="preview-card fade-section">
+        <div class="preview-image"></div>
+        <h3>Advanced Admin Menu</h3>
+        <p>Complete server management with intuitive interface</p>
+        <div class="preview-price">$15.99</div>
+      </div>
+      <div class="preview-card fade-section">
+        <div class="preview-image"></div>
+        <h3>Custom Vehicle System</h3>
+        <p>Enhanced vehicle management and customization</p>
+        <div class="preview-price">$12.99</div>
+      </div>
+      <div class="preview-card fade-section">
+        <div class="preview-image"></div>
+        <h3>Economy Framework</h3>
+        <p>Complete economic system for your server</p>
+        <div class="preview-price">$19.99</div>
+      </div>
+    </div>
+    <div class="text-center">
+      <a href="scripts.html" class="btn-primary">View All Scripts</a>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+  <div class="container">
+    <h2 class="section-title">What Our Customers Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-section">
+        <div class="testimonial-content">
+          <p>"The best scripts I've ever purchased! Great support and amazing quality."</p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar"></div>
+          <div class="author-info">
+            <div class="author-name">Alex Johnson</div>
+            <div class="author-server">RP Paradise Server</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-section">
+        <div class="testimonial-content">
+          <p>"EveryM Scripts transformed our server. The attention to detail is incredible."</p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar"></div>
+          <div class="author-info">
+            <div class="author-name">Sarah Miller</div>
+            <div class="author-server">LifeLine RP</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-section">
+        <div class="testimonial-content">
+          <p>"Professional scripts with amazing features. Worth every penny!"</p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar"></div>
+          <div class="author-info">
+            <div class="author-name">Mike Chen</div>
+            <div class="author-server">Velocity Gaming</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+  <div class="container">
+    <h2>Ready to Elevate Your FiveM Server?</h2>
+    <p>Join thousands of server owners who trust EveryM Scripts for premium quality</p>
+    <div class="cta-buttons">
+      <a href="scripts.html" class="btn-primary">Browse Scripts</a>
+      <div id="dcjoin" class="btn-secondary">
+        <div id="dclogo"></div>
+        <span id="dcspan">Join Discord</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>EveryM Scripts</h3>
+        <p>Premium FiveM scripts and resources for server owners who demand quality.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="scripts.html">All Scripts</a></li>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="scripts.html">Admin Tools</a></li>
+          <li><a href="scripts.html">Vehicle Systems</a></li>
+          <li><a href="scripts.html">UI Enhancements</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <div class="social-links">
+          <div id="dcjoin" class="social-btn">
+            <div id="dclogo"></div>
+            <span>Discord</span>
+          </div>
+          <div id="ytjoin" class="social-btn">
+            <div id="ytlogo"></div>
+            <span>YouTube</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 EveryM Scripts. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
   <script src="script.js" defer></script>
 </body>
