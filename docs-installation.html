@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EveryM | Installation Guide</title>
+  <meta name="description" content="Complete installation guide for EveryM FiveM scripts. Step-by-step instructions for server setup.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+
+<div id="background"></div>
+
+<!-- Navigation -->
+<div id="headerbar">
+    <a id="home" class="headerbtns" href="index.html">Home</a>
+    <a id="scripts" class="headerbtns" href="scripts.html">Scripts</a>
+    <a id="docs" class="headerbtns" href="docs.html" target="_blank">Docs</a>
+    <a id="support" class="headerbtns" href="support.html">Support</a>
+    <div id="underlines">
+        <div id="homeline"></div>
+        <div id="scriptsline"></div>
+        <div id="docsline"></div>
+        <div id="supportline"></div>
+    </div>
+</div>
+
+<!-- Three Column Layout -->
+<div class="docs-layout">
+  <!-- Left Sidebar Navigation -->
+  <aside class="docs-sidebar">
+    <div class="sidebar-header">
+      <div class="logo-section">
+        <div class="logo">EveryM</div>
+        <span class="logo-subtitle">Installation Guide</span>
+      </div>
+      
+      <!-- Search Component -->
+      <div class="search-component">
+        <input type="text" class="search-input" placeholder="Search docs... (⌘K)" id="docsSearch">
+        <div class="search-shortcut">⌘K</div>
+      </div>
+    </div>
+    
+    <!-- Dynamic Navigation Tree -->
+    <nav class="docs-nav">
+      <div class="nav-section">
+        <div class="nav-title">Installation</div>
+        <ul class="nav-list">
+          <li><a href="#prerequisites" class="nav-link">Prerequisites</a></li>
+          <li><a href="#basic-setup" class="nav-link">Basic Setup</a></li>
+          <li><a href="#database-setup" class="nav-link">Database Setup</a></li>
+          <li><a href="#configuration" class="nav-link">Configuration</a></li>
+          <li><a href="#troubleshooting" class="nav-link">Troubleshooting</a></li>
+        </ul>
+      </div>
+      
+      <div class="nav-section">
+        <div class="nav-title">Script Specific</div>
+        <ul class="nav-list">
+          <li><a href="#everym-menu" class="nav-link">EveryM Menu</a></li>
+          <li><a href="#admin-tools" class="nav-link">Admin Tools</a></li>
+          <li><a href="#vehicle-system" class="nav-link">Vehicle System</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!-- Footer -->
+    <div class="sidebar-footer">
+      <div class="social-links">
+        <a href="#" class="social-link">Discord</a>
+        <a href="#" class="social-link">Store</a>
+      </div>
+    </div>
+  </aside>
+  
+  <!-- Center Content Viewport -->
+  <main class="docs-content">
+    <article class="content-section" id="prerequisites">
+      <h1 class="content-title">Prerequisites</h1>
+      <p class="content-lead">Before installing EveryM scripts, ensure your server meets these requirements.</p>
+      
+      <div class="installation-module">
+        <h3>Server Requirements</h3>
+        <ul>
+          <li>FiveM Server Build 5849 or higher</li>
+          <li>MySQL 8.0+ or MariaDB 10.5+</li>
+          <li>Minimum 4GB RAM (8GB recommended)</li>
+          <li>Linux or Windows Server</li>
+          <li>Valid EveryM License Key</li>
+        </ul>
+      </div>
+      
+      <div class="installation-module">
+        <h3>Required Frameworks</h3>
+        <ul>
+          <li>es_extended (latest version)</li>
+          <li>oxmysql or mysql-async</li>
+          <li>ox_inventory (for inventory features)</li>
+          <li>ox_target (for interaction system)</li>
+        </ul>
+      </div>
+    </article>
+    
+    <article class="content-section" id="basic-setup">
+      <h1 class="content-title">Basic Setup</h1>
+      
+      <!-- Installation Module -->
+      <div class="installation-module">
+        <div class="step-indicator">
+          <div class="step">1</div>
+          <div class="step">2</div>
+          <div class="step">3</div>
+          <div class="step">4</div>
+        </div>
+        
+        <div class="installation-content">
+          <h3>Step 1: Download Scripts</h3>
+          <p>Download your purchased scripts from the EveryM store. Extract the ZIP file to your server's resources folder.</p>
+          
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">bash</span>
+              <button class="copy-btn" data-copy="download">Copy</button>
+            </div>
+            <pre class="code-content"><code># Extract to resources folder
+cd /path/to/server/resources
+unzip everym-scripts.zip</code></pre>
+          </div>
+          
+          <h3>Step 2: Configure server.cfg</h3>
+          <p>Add the following lines to your server.cfg file:</p>
+          
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">cfg</span>
+              <button class="copy-btn" data-copy="server-cfg">Copy</button>
+            </div>
+            <pre class="code-content"><code># EveryM Scripts
+start everym
+start everym_menu
+start everym_admin
+start everym_vehicles
+
+# Database Configuration
+set mysql_connection_string "mysql://user:password@localhost/database"
+
+# License Configuration
+set everym_license "your-license-key-here"</code></pre>
+          </div>
+          
+          <h3>Step 3: Database Setup</h3>
+          <p>Import the provided SQL files into your database:</p>
+          
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">sql</span>
+              <button class="copy-btn" data-copy="db-import">Copy</button>
+            </div>
+            <pre class="code-content"><code># Import SQL files
+mysql -u username -p database_name < sql/everym_core.sql
+mysql -u username -p database_name < sql/everym_menu.sql
+mysql -u username -p database_name < sql/everym_vehicles.sql</code></pre>
+          </div>
+          
+          <h3>Step 4: Start Server</h3>
+          <p>Restart your FiveM server to load all scripts. Check the console for any errors.</p>
+          
+          <div class="installation-notes">
+            <h4>Important Notes:</h4>
+            <ul>
+              <li>Always backup your database before installation</li>
+              <li>Start dependencies before EveryM scripts</li>
+              <li>Verify all file paths are correct</li>
+              <li>Test in a development environment first</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="content-section" id="database-setup">
+      <h1 class="content-title">Database Setup</h1>
+      
+      <div class="installation-module">
+        <h3>MySQL Configuration</h3>
+        <p>Configure your MySQL server for optimal performance with EveryM scripts:</p>
+        
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-language">sql</span>
+            <button class="copy-btn" data-copy="mysql-config">Copy</button>
+          </div>
+          <pre class="code-content"><code>-- Create database
+CREATE DATABASE everym_server CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Create user
+CREATE USER 'everym'@'localhost' IDENTIFIED BY 'secure_password';
+GRANT ALL PRIVILEGES ON everym_server.* TO 'everym'@'localhost';
+FLUSH PRIVILEGES;</code></pre>
+        </div>
+      </div>
+      
+      <div class="installation-module">
+        <h3>Database Tables</h3>
+        <p>EveryM scripts will automatically create necessary tables on first startup:</p>
+        <ul>
+          <li><code>everym_players</code> - Player data and statistics</li>
+          <li><code>everym_vehicles</code> - Vehicle information and customization</li>
+          <li><code>everym_admin_logs</code> - Administrative action logs</li>
+          <li><code>everym_inventory</code> - Player inventory data</li>
+        </ul>
+      </div>
+    </article>
+    
+    <article class="content-section" id="configuration">
+      <h1 class="content-title">Configuration</h1>
+      
+      <div class="installation-module">
+        <h3>Main Configuration File</h3>
+        <p>Edit the <code>config/config.lua</code> file to customize script behavior:</p>
+        
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-language">lua</span>
+            <button class="copy-btn" data-copy="main-config">Copy</button>
+          </div>
+          <pre class="code-content"><code>Config = {
+    Framework = 'esx',
+    Database = 'mysql',
+    Locale = 'en',
+    
+    -- Menu Configuration
+    Menu = {
+        Key = 'F2',
+        Position = 'top-left',
+        Theme = 'dark',
+        Animation = true
+    },
+    
+    -- Admin Configuration
+    Admin = {
+        Permissions = {
+            ['god'] = true,
+            ['admin'] = true,
+            ['moderator'] = false
+        },
+        Logging = true,
+        Notifications = true
+    },
+    
+    -- Vehicle Configuration
+    Vehicles = {
+        SpawnInside = true,
+        MaxDistance = 100.0,
+        SavePosition = true,
+        CustomPlates = true
+    }
+}</code></pre>
+        </div>
+      </div>
+      
+      <div class="installation-module">
+        <h3>Advanced Settings</h3>
+        <ul>
+          <li>Performance optimization settings</li>
+          <li>Security configuration options</li>
+          <li>Custom event handlers</li>
+          <li>Third-party integrations</li>
+        </ul>
+      </div>
+    </article>
+    
+    <article class="content-section" id="troubleshooting">
+      <h1 class="content-title">Troubleshooting</h1>
+      
+      <div class="installation-module">
+        <h3>Common Installation Issues</h3>
+        
+        <div class="notice-box warning">
+          <div class="notice-icon">⚠️</div>
+          <div class="notice-content">
+            <h4>Resource Not Starting</h4>
+            <p>Check if all dependencies are properly installed and started before EveryM scripts.</p>
+          </div>
+        </div>
+        
+        <div class="notice-box critical">
+          <div class="notice-icon">✕</div>
+          <div class="notice-content">
+            <h4>Database Connection Failed</h4>
+            <p>Verify your database credentials and ensure MySQL server is running.</p>
+          </div>
+        </div>
+        
+        <h4>Solutions:</h4>
+        <ul>
+          <li>Check server console for error messages</li>
+          <li>Verify file permissions</li>
+          <li>Test database connection manually</li>
+          <li>Ensure correct resource order</li>
+          <li>Update to latest versions</li>
+        </ul>
+      </div>
+    </article>
+    
+    <article class="content-section" id="everym-menu">
+      <h1 class="content-title">EveryM Menu Setup</h1>
+      
+      <div class="installation-module">
+        <h3>Menu Configuration</h3>
+        <p>Specific settings for EveryM Menu:</p>
+        
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-language">lua</span>
+            <button class="copy-btn" data-copy="menu-config">Copy</button>
+          </div>
+          <pre class="code-content"><code>-- Menu specific configuration
+MenuConfig = {
+    Categories = {
+        'player' = true,
+        'vehicle' = true,
+        'admin' = true,
+        'inventory' = true
+    },
+    
+    UI = {
+        Theme = 'dark',
+        Position = 'top-left',
+        Size = 'medium',
+        Blur = true
+    },
+    
+    Features = {
+        Search = true,
+        Favorites = true,
+        Recent = true,
+        CustomItems = true
+    }
+}</code></pre>
+        </div>
+      </div>
+    </article>
+    
+    <article class="content-section" id="admin-tools">
+      <h1 class="content-title">Admin Tools Setup</h1>
+      
+      <div class="installation-module">
+        <h3>Admin Configuration</h3>
+        <p>Configure admin tools and permissions:</p>
+        
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-language">lua</span>
+            <button class="copy-btn" data-copy="admin-config">Copy</button>
+          </div>
+          <pre class="code-content"><code>-- Admin tools configuration
+AdminConfig = {
+    Permissions = {
+        ['kick'] = 'admin',
+        ['ban'] = 'admin',
+        ['teleport'] = 'moderator',
+        ['spawn'] = 'admin'
+    },
+    
+    Logging = {
+        Enabled = true,
+        Level = 'all',
+        File = 'logs/admin.log'
+    },
+    
+    Features = {
+        Spectate = true,
+        Teleport = true,
+        VehicleControl = true,
+        PlayerManagement = true
+    }
+}</code></pre>
+        </div>
+      </div>
+    </article>
+    
+    <article class="content-section" id="vehicle-system">
+      <h1 class="content-title">Vehicle System Setup</h1>
+      
+      <div class="installation-module">
+        <h3>Vehicle Configuration</h3>
+        <p>Configure vehicle system features:</p>
+        
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-language">lua</span>
+            <button class="copy-btn" data-copy="vehicle-config">Copy</button>
+          </div>
+          <pre class="code-content"><code>-- Vehicle system configuration
+VehicleConfig = {
+    Spawn = {
+        Inside = true,
+        MaxDistance = 100.0,
+        Delay = 2000,
+        Animation = true
+    },
+    
+    Storage = {
+        SavePosition = true,
+        SaveHealth = true,
+        SaveFuel = true,
+        SaveCustomization = true
+    },
+    
+    Features = {
+        CustomPlates = true,
+        VehicleShop = true,
+        Garage = true,
+        Repair = true
+    }
+}</code></pre>
+        </div>
+      </div>
+    </article>
+  </main>
+  
+  <!-- Right Table of Contents -->
+  <aside class="docs-toc">
+    <div class="toc-header">
+      <h3>On This Page</h3>
+    </div>
+    <nav class="toc-nav" id="tocNav">
+      <ul class="toc-list">
+        <li><a href="#prerequisites" class="toc-link">Prerequisites</a></li>
+        <li><a href="#basic-setup" class="toc-link">Basic Setup</a></li>
+        <li><a href="#database-setup" class="toc-link">Database Setup</a></li>
+        <li><a href="#configuration" class="toc-link">Configuration</a></li>
+        <li><a href="#troubleshooting" class="toc-link">Troubleshooting</a></li>
+        <li><a href="#everym-menu" class="toc-link">EveryM Menu</a></li>
+        <li><a href="#admin-tools" class="toc-link">Admin Tools</a></li>
+        <li><a href="#vehicle-system" class="toc-link">Vehicle System</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+      <h3>Quick Links</h3>
+      <div class="action-links">
+        <a href="#" class="action-link">Store</a>
+        <a href="#" class="action-link">YouTube</a>
+        <a href="#" class="action-link">Support</a>
+        <a href="#" class="action-link">Discord</a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>

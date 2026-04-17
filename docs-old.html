@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EveryM | Documentation</title>
+  <meta name="description" content="Complete documentation for EveryM FiveM scripts. Installation guides, tutorials, and API references.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+
+<div id="background"></div>
+
+<!-- Navigation -->
+<div id="headerbar">
+    <a id="home" class="headerbtns" href="index.html">Home</a>
+    <a id="scripts" class="headerbtns" href="scripts.html">Scripts</a>
+    <a id="docs" class="headerbtns" href="docs.html" target="_blank">Docs</a>
+    <a id="support" class="headerbtns" href="support.html">Support</a>
+    <div id="underlines">
+        <div id="homeline"></div>
+        <div id="scriptsline"></div>
+        <div id="docsline"></div>
+        <div id="supportline"></div>
+    </div>
+</div>
+
+<!-- Documentation Header -->
+<section class="docs-header">
+  <div class="container">
+    <h1 id="docstxt">Documentation Center</h1>
+    <p class="docs-subtitle">Complete guides, tutorials, and API references for all EveryM scripts</p>
+    <div class="docs-search">
+      <input type="text" class="search-input" placeholder="Search documentation..." id="docsSearch">
+    </div>
+  </div>
+</section>
+
+<!-- Quick Start Guide -->
+<section class="quick-start">
+  <div class="container">
+    <h2 class="section-title">Quick Start Guide</h2>
+    <div class="steps-grid">
+      <div class="step-card fade-section">
+        <div class="step-number">1</div>
+        <h3>Download Your Script</h3>
+        <p>After purchase, download the script files from your account dashboard or the download link provided.</p>
+      </div>
+      <div class="step-card fade-section">
+        <div class="step-number">2</div>
+        <h3>Extract Files</h3>
+        <p>Extract the downloaded ZIP file to a temporary folder on your computer.</p>
+      </div>
+      <div class="step-card fade-section">
+        <div class="step-number">3</div>
+        <h3>Upload to Server</h3>
+        <p>Upload the script folder to your server's resources directory via FTP or file manager.</p>
+      </div>
+      <div class="step-card fade-section">
+        <div class="step-number">4</div>
+        <h3>Configure & Start</h3>
+        <p>Add 'start scriptname' to your server.cfg and restart your server.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Script Documentation -->
+<section class="script-docs">
+  <div class="container">
+    <h2 class="section-title">Script Documentation</h2>
+    <div class="docs-tabs">
+      <button class="tab-btn active" data-tab="everymmenu">EveryM Menu</button>
+      <button class="tab-btn" data-tab="adminmenu">Admin Menu</button>
+      <button class="tab-btn" data-tab="vehiclesystem">Vehicle System</button>
+      <button class="tab-btn" data-tab="economy">Economy Framework</button>
+    </div>
+    
+    <div class="tab-content active" id="everymmenu">
+      <div class="doc-section">
+        <h3>Overview</h3>
+        <p>EveryM Menu is our flagship script featuring a modern, responsive interface with comprehensive server management tools.</p>
+        <div class="feature-list">
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Modern responsive design</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Customizable themes and colors</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Advanced player management</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Real-time server statistics</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="doc-section">
+        <h3>Installation</h3>
+        <div class="installation-steps">
+          <div class="install-step">
+            <h4>Step 1: File Placement</h4>
+            <code>resources/[everym]/</code>
+            <p>Place the entire 'everym' folder in your server's resources directory.</p>
+          </div>
+          <div class="install-step">
+            <h4>Step 2: Server Configuration</h4>
+            <code>start everym</code>
+            <p>Add this line to your server.cfg file.</p>
+          </div>
+          <div class="install-step">
+            <h4>Step 3: Dependencies</h4>
+            <code>ensure es_extended<br>ensure mysql-async</code>
+            <p>Make sure these dependencies are started before EveryM Menu.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="doc-section">
+        <h3>Configuration</h3>
+        <div class="config-example">
+          <h4>config.lua</h4>
+          <pre><code>Config = {
+    MenuKey = 'F2',
+    Theme = 'dark',
+    Language = 'en',
+    Permissions = {
+        ['admin'] = true,
+        ['moderator'] = true
+    },
+    Features = {
+        PlayerManagement = true,
+        VehicleSpawner = true,
+        TeleportSystem = true
+    }
+}</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div class="tab-content" id="adminmenu">
+      <div class="doc-section">
+        <h3>Overview</h3>
+        <p>Advanced Admin Menu provides comprehensive server administration tools with an intuitive interface.</p>
+        <div class="feature-list">
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Player management system</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Server tools and utilities</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Ban and kick system</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Real-time player monitoring</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="doc-section">
+        <h3>Installation</h3>
+        <div class="installation-steps">
+          <div class="install-step">
+            <h4>Step 1: File Placement</h4>
+            <code>resources/[adminmenu]/</code>
+            <p>Place the adminmenu folder in your resources directory.</p>
+          </div>
+          <div class="install-step">
+            <h4>Step 2: Server Configuration</h4>
+            <code>start adminmenu</code>
+            <p>Add to server.cfg after essential resources.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="tab-content" id="vehiclesystem">
+      <div class="doc-section">
+        <h3>Overview</h3>
+        <p>Custom Vehicle System enhances your server with advanced vehicle management and customization options.</p>
+      </div>
+      
+      <div class="doc-section">
+        <h3>Features</h3>
+        <div class="feature-list">
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Vehicle garage system</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Custom vehicle modifications</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Vehicle tracking and insurance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="tab-content" id="economy">
+      <div class="doc-section">
+        <h3>Overview</h3>
+        <p>Complete economic framework with jobs, banking, and marketplace integration.</p>
+      </div>
+      
+      <div class="doc-section">
+        <h3>Components</h3>
+        <div class="feature-list">
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Banking system</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Job management</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <span>Marketplace system</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- API Reference -->
+<section class="api-reference">
+  <div class="container">
+    <h2 class="section-title">API Reference</h2>
+    <div class="api-grid">
+      <div class="api-card fade-section">
+        <h3>Client Events</h3>
+        <div class="api-item">
+          <code>everym:openMenu</code>
+          <p>Opens the EveryM menu interface</p>
+        </div>
+        <div class="api-item">
+          <code>everym:closeMenu</code>
+          <p>Closes the menu interface</p>
+        </div>
+        <div class="api-item">
+          <code>everym:notify</code>
+          <p>Shows notification to player</p>
+        </div>
+      </div>
+      
+      <div class="api-card fade-section">
+        <h3>Server Events</h3>
+        <div class="api-item">
+          <code>everym:playerLoaded</code>
+          <p>Triggered when player data loads</p>
+        </div>
+        <div class="api-item">
+          <code>everym:adminAction</code>
+          <p>Triggered on admin actions</p>
+        </div>
+        <div class="api-item">
+          <code>everym:savePlayer</code>
+          <p>Saves player data to database</p>
+        </div>
+      </div>
+      
+      <div class="api-card fade-section">
+        <h3>Export Functions</h3>
+        <div class="api-item">
+          <code>exports['everym']:GetPlayerData()</code>
+          <p>Returns player data object</p>
+        </div>
+        <div class="api-item">
+          <code>exports['everym']:HasPermission()</code>
+          <p>Checks player permissions</p>
+        </div>
+        <div class="api-item">
+          <code>exports['everym']:SendNotification()</code>
+          <p>Sends notification to player</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Troubleshooting -->
+<section class="troubleshooting">
+  <div class="container">
+    <h2 class="section-title">Troubleshooting</h2>
+    <div class="troubleshoot-grid">
+      <div class="trouble-card fade-section">
+        <h3>Script Not Starting</h3>
+        <div class="trouble-content">
+          <h4>Common Causes:</h4>
+          <ul>
+            <li>Incorrect resource name in server.cfg</li>
+            <li>Missing dependencies</li>
+            <li>File path errors</li>
+          </ul>
+          <h4>Solutions:</h4>
+          <ul>
+            <li>Verify resource name matches folder name</li>
+            <li>Ensure all dependencies are started first</li>
+            <li>Check console for specific error messages</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="trouble-card fade-section">
+        <h3>Menu Not Opening</h3>
+        <div class="trouble-content">
+          <h4>Common Causes:</h4>
+          <ul>
+            <li>Key binding conflicts</li>
+            <li>Permission issues</li>
+            <li>Resource not fully loaded</li>
+          </ul>
+          <h4>Solutions:</h4>
+          <ul>
+            <li>Change menu key in config</li>
+            <li>Verify player has required permissions</li>
+            <li>Wait for resource to fully initialize</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="trouble-card fade-section">
+        <h3>Performance Issues</h3>
+        <div class="trouble-content">
+          <h4>Common Causes:</h4>
+          <ul>
+            <li>Too many concurrent players</li>
+            <li>Resource conflicts</li>
+            <li>Database connection issues</li>
+          </ul>
+          <h4>Solutions:</h4>
+          <ul>
+            <li>Optimize server resources</li>
+            <li>Check for resource conflicts</li>
+            <li>Verify database connection settings</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Tutorials -->
+<section class="video-tutorials">
+  <div class="container">
+    <h2 class="section-title">Video Tutorials</h2>
+    <div class="tutorial-grid">
+      <div class="tutorial-card fade-section">
+        <div class="tutorial-thumbnail">
+          <div class="play-icon">▶</div>
+        </div>
+        <h3>Basic Installation Guide</h3>
+        <p>Step-by-step installation tutorial for beginners</p>
+        <span class="tutorial-duration">5:32</span>
+      </div>
+      
+      <div class="tutorial-card fade-section">
+        <div class="tutorial-thumbnail">
+          <div class="play-icon">▶</div>
+        </div>
+        <h3>Configuration Tutorial</h3>
+        <p>Learn how to customize and configure scripts</p>
+        <span class="tutorial-duration">8:15</span>
+      </div>
+      
+      <div class="tutorial-card fade-section">
+        <div class="tutorial-thumbnail">
+          <div class="play-icon">▶</div>
+        </div>
+        <h3>Advanced Features</h3>
+        <p>Explore advanced features and customization</p>
+        <span class="tutorial-duration">12:45</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+  <div class="container">
+    <h2>Need More Help?</h2>
+    <p>Our support team is here to assist you with any questions</p>
+    <div class="cta-buttons">
+      <a href="support.html" class="btn-primary">Get Support</a>
+      <a href="#" class="btn-secondary">Join Discord</a>
+    </div>
+  </div>
+</section>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

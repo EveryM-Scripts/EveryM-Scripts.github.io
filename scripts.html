@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="icon" href="EveryM_Favicon.png" type="image/x-icon">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
 <div id="headerbar">
     <a id="home" class="headerbtns" href="index.html">Home</a>
     <a id="scripts" class="headerbtns" href="scripts.html">Scripts</a>
-    <a id="docs" class="headerbtns" href="docs.html">Docs</a>
+    <a id="docs" class="headerbtns" href="docs.html" target="_blank">Docs</a>
     <a id="support" class="headerbtns" href="support.html">Support</a>
     <div id="underlines">
         <div id="homeline"></div>
@@ -174,6 +174,45 @@
           <div class="product-price">$24.99</div>
           <button class="product-btn">View Details</button>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Details Modal -->
+<div id="productModal" class="product-modal">
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modalTitle">Product Title</h2>
+      <button class="modal-close" id="modalClose">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-image">
+        <div id="modalImage"></div>
+      </div>
+      <div class="modal-info">
+        <p id="modalDescription">Product description goes here...</p>
+        <div class="modal-features" id="modalFeatures">
+          <span class="feature-tag">Feature 1</span>
+          <span class="feature-tag">Feature 2</span>
+          <span class="feature-tag">Feature 3</span>
+        </div>
+        <div class="modal-details">
+          <h3>Product Details</h3>
+          <ul id="modalDetailsList">
+            <li>Detail 1</li>
+            <li>Detail 2</li>
+            <li>Detail 3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="modal-price" id="modalPrice">$0.00</div>
+      <div class="modal-actions">
+        <button class="modal-btn btn-primary">Purchase Now</button>
+        <button class="modal-btn btn-secondary">View Demo</button>
       </div>
     </div>
   </div>
