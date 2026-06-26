@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
-  <link rel="icon" href="EveryM_Favicon.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link rel="icon" href="EveryM_Favicon.png" type="image/png">
 </head>
 <body>
 
@@ -22,12 +23,12 @@
     <div class="sidebar-header">
       <div class="logo-section">
         <div class="logo">EveryM</div>
-        <span class="logo-subtitle">Documentation</span>
+        <span class="logo-subtitle" data-i18n="docs.shared.documentation">Documentation</span>
       </div>
       
       <!-- Search Component -->
       <div class="search-component">
-        <input type="text" class="search-input" placeholder="Search docs... (⌘K)" id="docsSearch">
+        <input type="text" class="search-input" data-i18n-placeholder="docs.shared.searchPlaceholder" placeholder="Search docs... (⌘K)" id="docsSearch">
         <div class="search-shortcut">⌘K</div>
       </div>
     </div>
@@ -35,26 +36,26 @@
     <!-- Dynamic Navigation Tree -->
     <nav class="docs-nav">
       <div class="nav-section">
-        <div class="nav-title">Getting Started</div>
+        <div class="nav-title" data-i18n="docs.shared.gettingStarted">Getting Started</div>
         <ul class="nav-list">
-          <li><a href="#introduction" class="nav-link">Introduction</a></li>
-          <li><a href="#terms" class="nav-link">Terms of Purchase</a></li>
-          <li><a href="#general-faq" class="nav-link">General FAQ</a></li>
+          <li><a href="#introduction" class="nav-link" data-i18n="docs.shared.introduction">Introduction</a></li>
+          <li><a href="#terms" class="nav-link" data-i18n="docs.shared.terms">Terms of Purchase</a></li>
+          <li><a href="#general-faq" class="nav-link" data-i18n="docs.shared.generalFaq">General FAQ</a></li>
         </ul>
       </div>
       
       <div class="nav-section">
         <div class="nav-accordion">
           <div class="nav-accordion-header">
-            <span>Premium Scripts</span>
+            <span data-i18n="docs.shared.premiumScripts">Premium Scripts</span>
             <span class="accordion-icon">▼</span>
           </div>
           <ul class="nav-list accordion-content">
-            <li><a href="docs-everym-menu.html" class="nav-link">EveryM Menu</a></li>
-            <li><a href="docs-everym-menu.html#features" class="nav-link">Features</a></li>
-            <li><a href="docs-everym-menu.html#installation" class="nav-link">Installation Guide</a></li>
-            <li><a href="docs-everym-menu.html#configuration" class="nav-link">Configuration</a></li>
-            <li><a href="docs-everym-menu.html#api" class="nav-link">API Reference</a></li>
+            <li><a href="docs-everym-menu.html" class="nav-link" data-i18n="docs.shared.everymMenu">EveryM Menu</a></li>
+            <li><a href="docs-everym-menu.html#features" class="nav-link" data-i18n="docs.shared.features">Features</a></li>
+            <li><a href="docs-everym-menu.html#installation" class="nav-link" data-i18n="docs.shared.installationGuide">Installation Guide</a></li>
+            <li><a href="docs-everym-menu.html#configuration" class="nav-link" data-i18n="docs.shared.configuration">Configuration</a></li>
+            <li><a href="docs-everym-menu.html#api" class="nav-link" data-i18n="docs.shared.apiReference">API Reference</a></li>
           </ul>
         </div>
       </div>
@@ -62,14 +63,14 @@
       <div class="nav-section">
         <div class="nav-accordion">
           <div class="nav-accordion-header">
-            <span>Admin Tools</span>
+            <span data-i18n="docs.shared.adminTools">Admin Tools</span>
             <span class="accordion-icon">▼</span>
           </div>
           <ul class="nav-list accordion-content">
-            <li><a href="docs-installation.html#admin-tools" class="nav-link">Admin Menu</a></li>
-            <li><a href="docs-installation.html#admin-tools" class="nav-link">Features</a></li>
-            <li><a href="docs-installation.html#admin-tools" class="nav-link">Installation</a></li>
-            <li><a href="docs-installation.html#admin-tools" class="nav-link">API</a></li>
+            <li><a href="docs-installation.html#admin-tools" class="nav-link" data-i18n="docs.shared.adminMenu">Admin Menu</a></li>
+            <li><a href="docs-installation.html#admin-tools" class="nav-link" data-i18n="docs.shared.features">Features</a></li>
+            <li><a href="docs-installation.html#admin-tools" class="nav-link" data-i18n="docs.shared.installation">Installation</a></li>
+            <li><a href="docs-installation.html#admin-tools" class="nav-link" data-i18n="docs.shared.api">API</a></li>
           </ul>
         </div>
       </div>
@@ -77,13 +78,13 @@
       <div class="nav-section">
         <div class="nav-accordion">
           <div class="nav-accordion-header">
-            <span>Vehicle Systems</span>
+            <span data-i18n="docs.shared.vehicleSystems">Vehicle Systems</span>
             <span class="accordion-icon">▼</span>
           </div>
           <ul class="nav-list accordion-content">
-            <li><a href="docs-installation.html#vehicle-system" class="nav-link">Vehicle System</a></li>
-            <li><a href="docs-installation.html#vehicle-system" class="nav-link">Features</a></li>
-            <li><a href="docs-installation.html#vehicle-system" class="nav-link">Installation</a></li>
+            <li><a href="docs-installation.html#vehicle-system" class="nav-link" data-i18n="docs.shared.vehicleSystem">Vehicle System</a></li>
+            <li><a href="docs-installation.html#vehicle-system" class="nav-link" data-i18n="docs.shared.features">Features</a></li>
+            <li><a href="docs-installation.html#vehicle-system" class="nav-link" data-i18n="docs.shared.installation">Installation</a></li>
           </ul>
         </div>
       </div>
@@ -92,8 +93,8 @@
     <!-- Footer -->
     <div class="sidebar-footer">
       <div class="social-links">
-        <a href="#" class="social-link">Discord</a>
-        <a href="#" class="social-link">Store</a>
+        <a href="https://discord.com/invite/zgcXpcfHbA" target="_blank" rel="noopener" class="social-link">Discord</a>
+        <a href="scripts.html" class="social-link" data-i18n="docs.shared.store">Store</a>
       </div>
     </div>
   </aside>
@@ -101,41 +102,74 @@
   <!-- Center Content Viewport -->
   <main class="docs-content">
     <article class="content-section" id="introduction">
-      <h1 class="content-title">Introduction</h1>
-      <p class="content-lead">Welcome to EveryM Scripts - the premier destination for high-quality FiveM scripts and resources.</p>
+      <h1 class="content-title" data-i18n="docs.shared.introduction">Introduction</h1>
+      <p class="content-lead" data-i18n="docs.main.introLead">Welcome to EveryM Scripts - the premier destination for high-quality FiveM scripts and resources.</p>
       
       <!-- Feature Cards -->
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-icon">⚡</div>
-          <h3>Lightning Fast</h3>
+          <h3 data-i18n="docs.main.featFastTitle">Lightning Fast</h3>
           <p class="feature-metric">0.01ms CPU usage</p>
-          <p>Optimized performance with minimal server impact</p>
+          <p data-i18n="docs.main.featFastDesc">Optimized performance with minimal server impact</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🛡️</div>
-          <h3>Secure by Default</h3>
+          <h3 data-i18n="docs.main.featSecureTitle">Secure by Default</h3>
           <p class="feature-metric">Enterprise-grade</p>
-          <p>Built-in security features and regular updates</p>
+          <p data-i18n="docs.main.featSecureDesc">Built-in security features and regular updates</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🎯</div>
-          <h3>Developer Friendly</h3>
+          <h3 data-i18n="docs.main.featDevTitle">Developer Friendly</h3>
           <p class="feature-metric">Full API Access</p>
-          <p>Comprehensive documentation and developer tools</p>
+          <p data-i18n="docs.main.featDevDesc">Comprehensive documentation and developer tools</p>
         </div>
+      </div>
+    </article>
+
+    <article class="content-section" id="terms">
+      <h1 class="content-title" data-i18n="docs.shared.terms">Terms of Purchase</h1>
+      <p class="content-lead" data-i18n="docs.main.termsLead">By purchasing EveryM Scripts products, you agree to the following terms.</p>
+      <div class="installation-notes">
+        <ul>
+          <li data-i18n="docs.main.term1">Each license is valid for one FiveM server unless otherwise stated.</li>
+          <li data-i18n="docs.main.term2">Redistribution, resale, or leaking of scripts is strictly prohibited.</li>
+          <li data-i18n="docs.main.term3">Lifetime updates are included with every purchase.</li>
+          <li data-i18n="docs.main.term4">Refunds are available within 7 days if the product does not work as described.</li>
+          <li data-i18n="docs.main.term5">Support is provided through our official Discord server.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="content-section" id="general-faq">
+      <h1 class="content-title" data-i18n="docs.shared.generalFaq">General FAQ</h1>
+      <div class="installation-notes">
+        <h4 data-i18n="docs.main.faqFrameworks">Which frameworks are supported?</h4>
+        <ul>
+          <li data-i18n="docs.main.faqFrameworks1">ESX and QBCore are supported on most scripts.</li>
+          <li data-i18n="docs.main.faqFrameworks2">Standalone mode is available where noted in each product page.</li>
+        </ul>
+        <h4 data-i18n="docs.main.faqUpdates">How do I receive updates?</h4>
+        <ul>
+          <li data-i18n="docs.main.faqUpdates1">Updates are announced in Discord and can be downloaded from your purchase channel.</li>
+        </ul>
+        <h4 data-i18n="docs.main.faqHelp">Need installation help?</h4>
+        <ul>
+          <li data-i18n="docs.main.faqHelp1">See the <a href="docs-installation.html" style="color:#64b5f6">Installation Guide</a> or open a ticket in Discord.</li>
+        </ul>
       </div>
     </article>
     
     <article class="content-section" id="everym-menu-installation">
-      <h1 class="content-title">EveryM Menu - Installation Guide</h1>
+      <h1 class="content-title" data-i18n="docs.main.installGuideTitle">EveryM Menu - Installation Guide</h1>
       
       <!-- Notice Box -->
       <div class="notice-box success">
         <div class="notice-icon">✓</div>
         <div class="notice-content">
-          <h4>Installation Complete</h4>
-          <p>Follow these steps for a successful setup</p>
+          <h4 data-i18n="docs.shared.installationComplete">Installation Complete</h4>
+          <p data-i18n="docs.shared.followSteps">Follow these steps for a successful setup</p>
         </div>
       </div>
       
@@ -149,14 +183,14 @@
         </div>
         
         <div class="installation-content">
-          <h3>Step 3: Configure Server Settings</h3>
-          <p>Edit your server.cfg file to include the following:</p>
+          <h3 data-i18n="docs.main.step3Title">Step 3: Configure Server Settings</h3>
+          <p data-i18n="docs.main.step3Desc">Edit your server.cfg file to include the following:</p>
           
           <!-- Code Block -->
           <div class="code-block">
             <div class="code-header">
               <span class="code-language">lua</span>
-              <button class="copy-btn" data-copy="server-config">Copy</button>
+              <button class="copy-btn" data-copy="server-config" data-i18n="docs.shared.copy">Copy</button>
             </div>
             <pre class="code-content"><code># EveryM Menu Configuration
 start everym
@@ -165,11 +199,11 @@ set everym_license "your-license-key"</code></pre>
           </div>
           
           <div class="installation-notes">
-            <h4>Important Notes:</h4>
+            <h4 data-i18n="docs.shared.importantNotes">Important Notes:</h4>
             <ul>
-              <li>Ensure es_extended is started before everym</li>
-              <li>MySQL connection is required for database features</li>
-              <li>Restart server after configuration changes</li>
+              <li data-i18n="docs.main.note1">Ensure es_extended is started before everym</li>
+              <li data-i18n="docs.main.note2">MySQL connection is required for database features</li>
+              <li data-i18n="docs.main.note3">Restart server after configuration changes</li>
             </ul>
           </div>
         </div>
@@ -177,23 +211,23 @@ set everym_license "your-license-key"</code></pre>
     </article>
     
     <article class="content-section" id="everym-menu-api">
-      <h1 class="content-title">API Reference</h1>
+      <h1 class="content-title" data-i18n="docs.shared.apiReference">API Reference</h1>
       
       <!-- Resource Tabs -->
       <div class="resource-tabs">
-        <button class="resource-tab active" data-resource="client-events">Client Events</button>
-        <button class="resource-tab" data-resource="server-events">Server Events</button>
-        <button class="resource-tab" data-resource="exports">Export Functions</button>
+        <button class="resource-tab active" data-resource="client-events" data-i18n="docs.shared.clientEvents">Client Events</button>
+        <button class="resource-tab" data-resource="server-events" data-i18n="docs.shared.serverEvents">Server Events</button>
+        <button class="resource-tab" data-resource="exports" data-i18n="docs.shared.exportFunctions">Export Functions</button>
       </div>
       
       <div class="api-content">
         <div class="api-item">
           <h4>everym:openMenu</h4>
-          <p>Opens the EveryM menu interface for the player</p>
+          <p data-i18n="docs.main.openMenuDesc">Opens the EveryM menu interface for the player</p>
           <div class="code-block">
             <div class="code-header">
               <span class="code-language">lua</span>
-              <button class="copy-btn" data-copy="open-menu">Copy</button>
+              <button class="copy-btn" data-copy="open-menu" data-i18n="docs.shared.copy">Copy</button>
             </div>
             <pre class="code-content"><code>-- Client-side
 TriggerEvent('everym:openMenu')</code></pre>
@@ -202,11 +236,11 @@ TriggerEvent('everym:openMenu')</code></pre>
         
         <div class="api-item">
           <h4>exports['everym']:GetPlayerData()</h4>
-          <p>Returns comprehensive player data object</p>
+          <p data-i18n="docs.main.getPlayerDesc">Returns comprehensive player data object</p>
           <div class="code-block">
             <div class="code-header">
               <span class="code-language">lua</span>
-              <button class="copy-btn" data-copy="get-player-data">Copy</button>
+              <button class="copy-btn" data-copy="get-player-data" data-i18n="docs.shared.copy">Copy</button>
             </div>
             <pre class="code-content"><code>-- Server-side
 local playerData = exports['everym']:GetPlayerData(source)
@@ -218,7 +252,7 @@ print(playerData.identifier)</code></pre>
     
     <!-- Review Slider -->
     <section class="review-slider">
-      <h2 class="section-title">Customer Reviews</h2>
+      <h2 class="section-title" data-i18n="docs.shared.customerReviews">Customer Reviews</h2>
       <div class="review-grid">
         <div class="review-card">
           <div class="review-header">
@@ -228,7 +262,7 @@ print(playerData.identifier)</code></pre>
               <div class="review-rating">★★★★★</div>
             </div>
           </div>
-          <p class="review-content">"Excellent scripts with amazing support. The admin menu has everything we needed for our server!"</p>
+          <p class="review-content" data-i18n="docs.main.review1">"Excellent scripts with amazing support. The admin menu has everything we needed for our server!"</p>
           <div class="review-meta">
             <span class="review-server">RP Server Name</span>
             <span class="review-date">2 days ago</span>
@@ -243,7 +277,7 @@ print(playerData.identifier)</code></pre>
               <div class="review-rating">★★★★★</div>
             </div>
           </div>
-          <p class="review-content">"The vehicle system is incredible! So many customization options and our players love it."</p>
+          <p class="review-content" data-i18n="docs.main.review2">"The vehicle system is incredible! So many customization options and our players love it."</p>
           <div class="review-meta">
             <span class="review-server">FiveM Life</span>
             <span class="review-date">1 week ago</span>
@@ -256,24 +290,26 @@ print(playerData.identifier)</code></pre>
   <!-- Right Table of Contents -->
   <aside class="docs-toc">
     <div class="toc-header">
-      <h3>On This Page</h3>
+      <h3 data-i18n="docs.shared.onThisPage">On This Page</h3>
     </div>
     <nav class="toc-nav" id="tocNav">
       <ul class="toc-list">
-        <li><a href="#introduction" class="toc-link">Introduction</a></li>
-        <li><a href="#everym-menu-installation" class="toc-link">Installation Guide</a></li>
-        <li><a href="#everym-menu-api" class="toc-link">API Reference</a></li>
+        <li><a href="#introduction" class="toc-link" data-i18n="docs.shared.introduction">Introduction</a></li>
+        <li><a href="#terms" class="toc-link" data-i18n="docs.shared.terms">Terms of Purchase</a></li>
+        <li><a href="#general-faq" class="toc-link" data-i18n="docs.shared.generalFaq">General FAQ</a></li>
+        <li><a href="#everym-menu-installation" class="toc-link" data-i18n="docs.shared.installationGuide">Installation Guide</a></li>
+        <li><a href="#everym-menu-api" class="toc-link" data-i18n="docs.shared.apiReference">API Reference</a></li>
       </ul>
     </nav>
     
     <!-- Quick Actions -->
     <div class="quick-actions">
-      <h3>Quick Links</h3>
+      <h3 data-i18n="docs.shared.quickLinks">Quick Links</h3>
       <div class="action-links">
-        <a href="#" class="action-link">Store</a>
-        <a href="#" class="action-link">YouTube</a>
-        <a href="#" class="action-link">Support</a>
-        <a href="#" class="action-link">Discord</a>
+        <a href="scripts.html" class="action-link" data-i18n="docs.shared.store">Store</a>
+        <a href="https://www.youtube.com/@everym-scripts" target="_blank" rel="noopener" class="action-link">YouTube</a>
+        <a href="support.html" class="action-link" data-i18n="docs.shared.support">Support</a>
+        <a href="https://discord.com/invite/zgcXpcfHbA" target="_blank" rel="noopener" class="action-link">Discord</a>
       </div>
     </div>
   </aside>
@@ -287,12 +323,13 @@ print(playerData.identifier)</code></pre>
     <span></span>
   </button>
   <div class="mobile-quick-actions">
-    <a href="#" class="mobile-action">Store</a>
-    <a href="#" class="mobile-action">Support</a>
-    <a href="#" class="mobile-action">Discord</a>
+    <a href="scripts.html" class="mobile-action" data-i18n="docs.shared.store">Store</a>
+    <a href="support.html" class="mobile-action" data-i18n="docs.shared.support">Support</a>
+    <a href="https://discord.com/invite/zgcXpcfHbA" target="_blank" rel="noopener" class="mobile-action">Discord</a>
   </div>
 </div>
 
+<script src="i18n.js" defer></script>
 <script src="script.js" defer></script>
 </body>
 </html>

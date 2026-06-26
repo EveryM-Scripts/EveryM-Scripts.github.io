@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link rel="icon" href="EveryM_Favicon.png" type="image/png">
 </head>
 <body>
 
@@ -17,10 +18,10 @@
 
 <!-- Navigation -->
 <div id="headerbar">
-    <a id="home" class="headerbtns" href="index.html">Home</a>
-    <a id="scripts" class="headerbtns" href="scripts.html">Scripts</a>
-    <a id="docs" class="headerbtns" href="docs.html" target="_blank">Docs</a>
-    <a id="support" class="headerbtns" href="support.html">Support</a>
+    <a id="home" class="headerbtns" href="index.html" data-i18n="nav.home">Home</a>
+    <a id="scripts" class="headerbtns" href="scripts.html" data-i18n="nav.scripts">Scripts</a>
+    <a id="docs" class="headerbtns" href="docs.html" target="_blank" data-i18n="nav.docs">Docs</a>
+    <a id="support" class="headerbtns" href="support.html" data-i18n="nav.support">Support</a>
     <div id="underlines">
         <div id="homeline"></div>
         <div id="scriptsline"></div>
@@ -36,12 +37,12 @@
     <div class="sidebar-header">
       <div class="logo-section">
         <div class="logo">EveryM</div>
-        <span class="logo-subtitle">EveryM Menu</span>
+        <span class="logo-subtitle" data-i18n="docs.everymMenu.subtitle">EveryM Menu</span>
       </div>
       
       <!-- Search Component -->
       <div class="search-component">
-        <input type="text" class="search-input" placeholder="Search docs... (⌘K)" id="docsSearch">
+        <input type="text" class="search-input" data-i18n-placeholder="docs.shared.searchPlaceholder" placeholder="Search docs... (⌘K)" id="docsSearch">
         <div class="search-shortcut">⌘K</div>
       </div>
     </div>
@@ -49,14 +50,14 @@
     <!-- Dynamic Navigation Tree -->
     <nav class="docs-nav">
       <div class="nav-section">
-        <div class="nav-title">EveryM Menu</div>
+        <div class="nav-title" data-i18n="docs.shared.everymMenu">EveryM Menu</div>
         <ul class="nav-list">
-          <li><a href="#introduction" class="nav-link">Introduction</a></li>
-          <li><a href="#features" class="nav-link">Features</a></li>
-          <li><a href="#installation" class="nav-link">Installation</a></li>
-          <li><a href="#configuration" class="nav-link">Configuration</a></li>
-          <li><a href="#api" class="nav-link">API Reference</a></li>
-          <li><a href="#troubleshooting" class="nav-link">Troubleshooting</a></li>
+          <li><a href="#introduction" class="nav-link" data-i18n="docs.shared.introduction">Introduction</a></li>
+          <li><a href="#features" class="nav-link" data-i18n="docs.shared.features">Features</a></li>
+          <li><a href="#installation" class="nav-link" data-i18n="docs.shared.installation">Installation</a></li>
+          <li><a href="#configuration" class="nav-link" data-i18n="docs.shared.configuration">Configuration</a></li>
+          <li><a href="#api" class="nav-link" data-i18n="docs.shared.apiReference">API Reference</a></li>
+          <li><a href="#troubleshooting" class="nav-link" data-i18n="docs.shared.troubleshooting">Troubleshooting</a></li>
         </ul>
       </div>
     </nav>
@@ -64,8 +65,8 @@
     <!-- Footer -->
     <div class="sidebar-footer">
       <div class="social-links">
-        <a href="#" class="social-link">Discord</a>
-        <a href="#" class="social-link">Store</a>
+        <a href="https://discord.com/invite/zgcXpcfHbA" target="_blank" rel="noopener" class="social-link">Discord</a>
+        <a href="scripts.html" class="social-link" data-i18n="docs.shared.store">Store</a>
       </div>
     </div>
   </aside>
@@ -73,8 +74,8 @@
   <!-- Center Content Viewport -->
   <main class="docs-content">
     <article class="content-section" id="introduction">
-      <h1 class="content-title">EveryM Menu</h1>
-      <p class="content-lead">The most advanced and feature-rich admin menu for FiveM servers. EveryM Menu provides comprehensive server management tools with an intuitive interface and powerful customization options.</p>
+      <h1 class="content-title" data-i18n="docs.shared.everymMenu">EveryM Menu</h1>
+      <p class="content-lead" data-i18n="docs.everymMenu.introLead">The most advanced and feature-rich admin menu for FiveM servers. EveryM Menu provides comprehensive server management tools with an intuitive interface and powerful customization options.</p>
       
       <!-- Feature Cards -->
       <div class="feature-grid">
@@ -100,38 +101,38 @@
     </article>
     
     <article class="content-section" id="features">
-      <h1 class="content-title">Features</h1>
+      <h1 class="content-title" data-i18n="docs.shared.features">Features</h1>
       
       <div class="installation-module">
-        <h3>Core Features</h3>
+        <h3 data-i18n="docs.everymMenu.coreFeatures">Core Features</h3>
         <ul>
-          <li>Advanced player management system</li>
-          <li>Real-time server monitoring</li>
-          <li>Custom permission system</li>
-          <li>Vehicle spawning and management</li>
-          <li>Weapon management system</li>
-          <li>Teleportation system</li>
-          <li>Weather and time control</li>
-          <li>Server economy tools</li>
+          <li data-i18n="docs.everymMenu.cf1">Advanced player management system</li>
+          <li data-i18n="docs.everymMenu.cf2">Real-time server monitoring</li>
+          <li data-i18n="docs.everymMenu.cf3">Custom permission system</li>
+          <li data-i18n="docs.everymMenu.cf4">Vehicle spawning and management</li>
+          <li data-i18n="docs.everymMenu.cf5">Weapon management system</li>
+          <li data-i18n="docs.everymMenu.cf6">Teleportation system</li>
+          <li data-i18n="docs.everymMenu.cf7">Weather and time control</li>
+          <li data-i18n="docs.everymMenu.cf8">Server economy tools</li>
         </ul>
       </div>
       
       <div class="installation-module">
-        <h3>Advanced Features</h3>
+        <h3 data-i18n="docs.everymMenu.advancedFeatures">Advanced Features</h3>
         <ul>
-          <li>Custom UI themes and layouts</li>
-          <li>Plugin system for extensibility</li>
-          <li>Database integration</li>
-          <li>Multi-language support</li>
-          <li>Mobile responsive design</li>
-          <li>Advanced logging system</li>
-          <li>Backup and restore functionality</li>
+          <li data-i18n="docs.everymMenu.af1">Custom UI themes and layouts</li>
+          <li data-i18n="docs.everymMenu.af2">Plugin system for extensibility</li>
+          <li data-i18n="docs.everymMenu.af3">Database integration</li>
+          <li data-i18n="docs.everymMenu.af4">Multi-language support</li>
+          <li data-i18n="docs.everymMenu.af5">Mobile responsive design</li>
+          <li data-i18n="docs.everymMenu.af6">Advanced logging system</li>
+          <li data-i18n="docs.everymMenu.af7">Backup and restore functionality</li>
         </ul>
       </div>
     </article>
     
     <article class="content-section" id="installation">
-      <h1 class="content-title">Installation Guide</h1>
+      <h1 class="content-title" data-i18n="docs.shared.installationGuide">Installation Guide</h1>
       
       <!-- Notice Box -->
       <div class="notice-box success">
@@ -359,6 +360,7 @@ end)</code></pre>
   </aside>
 </div>
 
+<script src="i18n.js" defer></script>
 <script src="script.js" defer></script>
 </body>
 </html>

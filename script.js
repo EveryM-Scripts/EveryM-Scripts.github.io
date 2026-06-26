@@ -8,8 +8,12 @@ if (el) {
 
   el.addEventListener('input', () => {
     if (el.textContent.trim() === "") {
-      el.setAttribute('data-placeholder', 'Type here...');
+      const placeholder = window.EveryMI18n
+        ? window.EveryMI18n.t('common.searchPlaceholder')
+        : 'Search Scripts...';
+      el.setAttribute('data-placeholder', placeholder);
     }
+    applyProductFilters();
   });
 }
 
@@ -32,11 +36,8 @@ if (currentPage === '' || currentPage === 'index.html') currentPage = 'index.htm
 
 if (navMap[currentPage]) {
   const activeLink = document.getElementById(navMap[currentPage]);
-  const activeLine = document.getElementById(navLines[navMap[currentPage]]);
-  if (activeLink && activeLine) {
-    activeLink.style.top = '-4px';
+  if (activeLink) {
     activeLink.classList.add('active');
-    activeLine.classList.add('active');
   }
 }
 
@@ -51,9 +52,8 @@ Object.keys(navLines).forEach(linkId => {
       return;
     }
 
-    document.querySelectorAll('#underlines div').forEach(line => line.classList.remove('active'));
-    const line = document.getElementById(navLines[linkId]);
-    if (line) line.classList.add('active');
+    document.querySelectorAll('.headerbtns').forEach(btn => btn.classList.remove('active'));
+    link.classList.add('active');
   });
 });
 
@@ -85,7 +85,8 @@ const animateStats = () => {
         stat.textContent = Math.ceil(current);
         setTimeout(updateCounter, 20);
       } else {
-        stat.textContent = target + (stat.parentElement.querySelector('.stat-label').textContent.includes('%') ? '%' : '+');
+        const suffix = stat.getAttribute('data-suffix') ?? '+';
+        stat.textContent = target + suffix;
       }
     };
     
@@ -154,172 +155,112 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalDetailsList = document.getElementById('modalDetailsList');
   const modalPrice = document.getElementById('modalPrice');
   const modalImage = document.getElementById('modalImage');
+  const modalDocsLink = document.getElementById('modalDocsLink');
 
-  // Product data
-  const productData = {
-    'Advanced Admin Menu': {
-      title: 'Advanced Admin Menu',
-      description: 'Complete server management with intuitive interface and powerful tools. This comprehensive admin solution provides everything you need to manage your FiveM server efficiently.',
-      features: ['Player Management', 'Server Tools', 'Customizable', 'Real-time Monitoring', 'Advanced Permissions'],
-      details: [
-        'Full player management system with kick, ban, and teleport options',
-        'Real-time server monitoring and statistics',
-        'Customizable interface with multiple themes',
-        'Advanced permission system with role-based access',
-        'Built-in anti-cheat integration',
-        'Comprehensive logging system'
-      ],
+  const PRODUCT_META = {
+    adminMenu: {
       price: '$15.99',
       gradient: 'linear-gradient(135deg, #ff6b6b, #ee5a24)'
     },
-    'Custom Vehicle System': {
-      title: 'Custom Vehicle System',
-      description: 'Enhanced vehicle management with customization and tracking features. Take control of every vehicle on your server with this comprehensive system.',
-      features: ['Vehicle Mods', 'Garage System', 'Performance', 'Tracking', 'Insurance'],
-      details: [
-        'Advanced garage system with multiple locations',
-        'Vehicle customization with hundreds of options',
-        'Performance tuning and upgrade system',
-        'Vehicle tracking and recovery system',
-        'Insurance system for vehicle protection',
-        'Fuel management system'
-      ],
+    vehicleSystem: {
       price: '$12.99',
       gradient: 'linear-gradient(135deg, #4ecdc4, #44a08d)'
     },
-    'Economy Framework': {
-      title: 'Economy Framework',
-      description: 'Complete economic system with jobs, banking, and marketplace. Build a thriving virtual economy with this comprehensive framework.',
-      features: ['Banking', 'Jobs', 'Market', 'Trading', 'Investments'],
-      details: [
-        'Advanced banking system with accounts and cards',
-        'Multiple job categories with progression system',
-        'Dynamic marketplace with supply and demand',
-        'Trading system between players',
-        'Investment opportunities with returns',
-        'Tax system and government management'
-      ],
+    economyFramework: {
       price: '$19.99',
       gradient: 'linear-gradient(135deg, #667eea, #764ba2)'
     },
-    'Modern UI Framework': {
-      title: 'Modern UI Framework',
-      description: 'Beautiful and responsive user interface components for your server. Create stunning user experiences with this comprehensive UI toolkit.',
-      features: ['Responsive', 'Animated', 'Customizable', 'Modern Design'],
-      details: [
-        'Responsive design that works on all devices',
-        'Smooth animations and transitions',
-        'Fully customizable themes and colors',
-        'Modern component library',
-        'Touch-friendly interface',
-        'Accessibility features included'
-      ],
+    uiFramework: {
       price: '$8.99',
       gradient: 'linear-gradient(135deg, #f093fb, #f5576c)'
     },
-    'Fun Activities Pack': {
-      title: 'Fun Activities Pack',
-      description: 'Collection of entertaining mini-games and activities for players. Keep your players engaged with diverse entertainment options.',
-      features: ['Mini Games', 'Entertainment', 'Interactive', 'Social'],
-      details: [
-        'Multiple mini-games with rewards',
-        'Social interaction features',
-        'Leaderboards and competitions',
-        'Seasonal events and activities',
-        'Customizable game rules',
-        'Player progression system'
-      ],
+    funActivities: {
       price: '$6.99',
       gradient: 'linear-gradient(135deg, #fa709a, #fee140)'
     },
-    'EveryM Menu': {
-      title: 'EveryM Menu',
-      description: 'Our flagship menu system with advanced features and beautiful design. The ultimate menu solution for FiveM servers.',
-      features: ['Premium', 'Feature Rich', 'Professional', 'Advanced'],
-      details: [
-        'Professional-grade interface design',
-        'Advanced customization options',
-        'Seamless integration with popular frameworks',
-        'Regular updates and support',
-        'Multi-language support',
-        'Cloud synchronization for settings'
-      ],
+    everymMenu: {
       price: '$24.99',
       gradient: 'linear-gradient(135deg, #1e3c72, #2a5298)',
       isSpecial: true
     }
   };
 
-  // Function to open modal with product data
-  function openModal(productTitle) {
-    const product = productData[productTitle];
-    if (!product) return;
+  let activeProductId = null;
 
-    // Set modal content
+  function getProductTranslation(productId) {
+    if (window.EveryMI18n) return window.EveryMI18n.getProduct(productId);
+    return null;
+  }
+
+  function openModal(productId) {
+    if (!productModal) return;
+    const meta = PRODUCT_META[productId];
+    const product = getProductTranslation(productId);
+    if (!meta || !product) return;
+
+    activeProductId = productId;
     modalTitle.textContent = product.title;
-    modalDescription.textContent = product.description;
-    modalPrice.textContent = product.price;
-    
-    // Set modal image
-    if (product.isSpecial) {
-      modalImage.style.background = product.gradient;
-      modalImage.innerHTML = '<div id="everymmenuimg" style="width: 100px; height: 100px;"></div>';
+    modalDescription.textContent = product.descLong || product.desc;
+    modalPrice.textContent = meta.price;
+
+    if (meta.isSpecial) {
+      modalImage.style.background = meta.gradient;
+      modalImage.innerHTML = '<div id="everymmenuimg" style="width: 100%; height: 100%;"></div>';
     } else {
-      modalImage.style.background = product.gradient;
+      modalImage.style.background = meta.gradient;
       modalImage.innerHTML = '';
     }
-    
-    // Set features
-    modalFeatures.innerHTML = product.features.map(feature => 
+
+    modalFeatures.innerHTML = (product.features || []).map(feature =>
       `<span class="feature-tag">${feature}</span>`
     ).join('');
-    
-    // Set details
-    modalDetailsList.innerHTML = product.details.map(detail => 
+
+    modalDetailsList.innerHTML = (product.details || []).map(detail =>
       `<li>${detail}</li>`
     ).join('');
-    
-    // Show modal
+
+    if (modalDocsLink) {
+      modalDocsLink.href = productId === 'everymMenu'
+        ? 'docs-everym-menu.html'
+        : 'docs-installation.html';
+    }
+
     productModal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
-  // Function to close modal
   function closeModal() {
+    if (!productModal) return;
     productModal.classList.remove('active');
     document.body.style.overflow = 'auto';
+    activeProductId = null;
   }
 
-  // Add click handlers to product buttons
-  const productButtons = document.querySelectorAll('.product-btn');
-  productButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
-      e.preventDefault();
-      const productCard = this.closest('.product');
-      const productTitle = productCard.querySelector('h3').textContent;
-      openModal(productTitle);
+  if (productModal && modalClose && modalOverlay) {
+    document.querySelectorAll('.product-btn').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const productCard = this.closest('.product');
+        const productId = productCard.getAttribute('data-product-id');
+        openModal(productId);
+      });
     });
-  });
 
-  // Close modal events
-  modalClose.addEventListener('click', closeModal);
-  modalOverlay.addEventListener('click', closeModal);
-
-  // Close on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && productModal.classList.contains('active')) {
-      closeModal();
-    }
-  });
-
-  // Contact buttons keep their original functionality
-  const contactButtons = document.querySelectorAll('.contact-btn');
-  contactButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
-      // Add any contact-specific functionality here
-      console.log('Contact button clicked');
+    document.addEventListener('everym:languagechange', () => {
+      if (activeProductId && productModal.classList.contains('active')) {
+        openModal(activeProductId);
+      }
     });
-  });
+
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && productModal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+  }
 
   // Enhanced hover effects for cards
   const cards = document.querySelectorAll('.feature-card, .preview-card, .testimonial-card');
@@ -381,134 +322,123 @@ if (container) {
   animate();
 }
 
-const discordJoinBtn = document.getElementById('discordjoin');
-if (discordJoinBtn) {
-  discordJoinBtn.addEventListener('click', () => {
-    window.location.href = 'https://discord.com/invite/zgcXpcfHbA';
+const DISCORD_URL = 'https://discord.com/invite/zgcXpcfHbA';
+const YOUTUBE_URL = 'https://www.youtube.com/@everym-scripts';
+const selectedFilters = new Set(['all']);
+
+document.querySelectorAll('.dc-join-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    window.open(DISCORD_URL, '_blank', 'noopener');
   });
+});
+
+document.querySelectorAll('.yt-join-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    window.open(YOUTUBE_URL, '_blank', 'noopener');
+  });
+});
+
+function applyProductFilters() {
+  const products = document.querySelectorAll('.product');
+  const searchEl = document.querySelector('.scriptsearch');
+  const query = searchEl ? searchEl.textContent.trim().toLowerCase() : '';
+  let visibleCount = 0;
+
+  const activeFilters = [...selectedFilters].filter(filter => filter !== 'all');
+
+  products.forEach(product => {
+    const prodAttr = product.getAttribute('data-category') || '';
+    const productCategories = prodAttr.split(/\s+/).filter(Boolean);
+    const matchesFilter = activeFilters.length === 0 ||
+      activeFilters.some(filter => productCategories.includes(filter));
+
+    const title = product.querySelector('h3')?.textContent.toLowerCase() || '';
+    const description = product.querySelector('.product-description')?.textContent.toLowerCase() || '';
+    const matchesSearch = !query || title.includes(query) || description.includes(query);
+
+    const visible = matchesFilter && matchesSearch;
+    product.classList.toggle('hidden-by-filter', !visible);
+    product.style.display = visible ? 'flex' : 'none';
+    if (visible) visibleCount += 1;
+  });
+
+  const scriptsbox = document.getElementById('scriptsbox');
+  let emptyState = document.getElementById('noResultsMessage');
+  if (scriptsbox && products.length) {
+    if (!emptyState) {
+      emptyState = document.createElement('div');
+      emptyState.id = 'noResultsMessage';
+      emptyState.className = 'no-results-message';
+      emptyState.textContent = window.EveryMI18n
+        ? window.EveryMI18n.t('common.noResults')
+        : 'No scripts match your search or filters.';
+      scriptsbox.appendChild(emptyState);
+    }
+    emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
 }
 
-// simple toggle handlers removed: the DOMContentLoaded filter logic manages active state now
-
-
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const filterButtons = document.querySelectorAll('.filteroption'); // Select filter buttons
-  const products = document.querySelectorAll('.product'); // Select all product elements
-  const selectedFilters = new Set(['all']); // Set to hold selected filters, start with "all" selected
-  
-  // Set initial active state for "All" button
+document.addEventListener('DOMContentLoaded', () => {
+  const filterButtons = document.querySelectorAll('.filteroption');
   const allButton = document.getElementById('categoryall');
+
   if (allButton) {
     allButton.classList.add('active');
   }
 
-  // Add event listeners for each filter button
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-      const filter = button.getAttribute('data-filter'); // Get the category to filter by
+      const filter = button.getAttribute('data-filter');
 
-      // Toggle selected filter in the Set
-      if (filter === "all") {
-        // If "All" is clicked, show all products and deselect other filters
+      if (filter === 'all') {
         selectedFilters.clear();
-        selectedFilters.add("all");
-        
-        // Update button states
+        selectedFilters.add('all');
         filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
       } else {
-        // Handle other filters (admin, vehicle, fun, etc.)
         if (selectedFilters.has(filter)) {
-          selectedFilters.delete(filter); // Deselect the filter
+          selectedFilters.delete(filter);
           button.classList.remove('active');
         } else {
-          selectedFilters.add(filter); // Select the filter
+          selectedFilters.add(filter);
           button.classList.add('active');
         }
-        
-        // Remove "all" from selectedFilters if any other filter is selected
-        if (selectedFilters.size > 1 && selectedFilters.has("all")) {
-          selectedFilters.delete("all");
-          if (allButton) {
-            allButton.classList.remove('active');
-          }
+
+        if (selectedFilters.size > 1 && selectedFilters.has('all')) {
+          selectedFilters.delete('all');
+          if (allButton) allButton.classList.remove('active');
         }
-        
-        // If no filters are selected, default to "all"
+
         if (selectedFilters.size === 0) {
-          selectedFilters.add("all");
-          if (allButton) {
-            allButton.classList.add('active');
-          }
+          selectedFilters.add('all');
+          if (allButton) allButton.classList.add('active');
         }
       }
 
-      // Loop through each product and check if it matches any selected category
-      products.forEach(product => {
-        const prodAttr = product.getAttribute('data-category') || '';
-        const productCategories = prodAttr.split(/\s+/).filter(Boolean);
-
-        // If "All" is selected, show all products
-        const matches = selectedFilters.has("all") || productCategories.some(category => selectedFilters.has(category));
-
-        product.style.display = matches ? 'block' : 'none';
-      });
+      applyProductFilters();
     });
   });
-});
 
-const dcjoin = document.getElementById('dcjoin');
-const ytjoin = document.getElementById('ytjoin');
+  applyProductFilters();
 
-if (dcjoin) {
-    dcjoin.addEventListener('click', () => {
-        window.open("https://discord.com/invite/zgcXpcfHbA", "_blank");
-    });
-} 
-if (ytjoin) {
-    ytjoin.addEventListener('click', () => {
-        window.open("https://www.youtube.com/@everym-scripts", "_blank");
-    });
-}
-
-// FAQ Accordion functionality
-document.addEventListener('DOMContentLoaded', () => {
   const faqItems = document.querySelectorAll('.faq-item');
-  
   faqItems.forEach(item => {
     const question = item.querySelector('.faq-question');
-    
     if (question) {
       question.addEventListener('click', () => {
-        // Close all other items
         faqItems.forEach(otherItem => {
-          if (otherItem !== item) {
-            otherItem.classList.remove('active');
-          }
+          if (otherItem !== item) otherItem.classList.remove('active');
         });
-        
-        // Toggle current item
         item.classList.toggle('active');
       });
     }
   });
-});
 
-// Professional Documentation Layout
-document.addEventListener('DOMContentLoaded', () => {
-  // Accordion Navigation
   const accordionHeaders = document.querySelectorAll('.nav-accordion-header');
   accordionHeaders.forEach(header => {
     header.addEventListener('click', () => {
       const accordion = header.parentElement;
       accordion.classList.toggle('active');
-      
-      // Close other accordions
       accordionHeaders.forEach(otherHeader => {
         if (otherHeader !== header) {
           otherHeader.parentElement.classList.remove('active');
@@ -517,26 +447,73 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Resource Tabs functionality
-  const resourceTabs = document.querySelectorAll('.resource-tab');
-  const resourceContents = document.querySelectorAll('.api-content');
-  
-  if (resourceTabs.length > 0) {
-    resourceTabs.forEach(button => {
-      button.addEventListener('click', (e) => {
-        const targetResource = button.getAttribute('data-resource');
-        
-        // Remove active class from all tabs
-        resourceTabs.forEach(btn => btn.classList.remove('active'));
-        
-        // Add active class to clicked tab
-        button.classList.add('active');
-        
-        // Filter API content (simplified for demo)
-        resourceContents.forEach(content => {
-          content.style.display = 'block';
-        });
+  document.querySelectorAll('.nav-accordion').forEach((accordion, index) => {
+    if (index === 0) accordion.classList.add('active');
+  });
+
+  document.querySelectorAll('.copy-btn').forEach(button => {
+    button.addEventListener('click', async () => {
+      const code = button.closest('.code-block')?.querySelector('code');
+      if (!code) return;
+      const copyLabel = window.EveryMI18n ? window.EveryMI18n.t('docs.shared.copy') : 'Copy';
+      const copiedLabel = window.EveryMI18n ? window.EveryMI18n.t('docs.shared.copied') : 'Copied!';
+      const failedLabel = window.EveryMI18n ? window.EveryMI18n.t('docs.shared.copyFailed') : 'Failed';
+      try {
+        await navigator.clipboard.writeText(code.textContent);
+        button.textContent = copiedLabel;
+        setTimeout(() => { button.textContent = copyLabel; }, 1500);
+      } catch {
+        button.textContent = failedLabel;
+        setTimeout(() => { button.textContent = copyLabel; }, 1500);
+      }
+    });
+  });
+
+  document.addEventListener('everym:languagechange', () => {
+    document.querySelectorAll('.copy-btn[data-i18n]').forEach(btn => {
+      btn.textContent = window.EveryMI18n.t(btn.getAttribute('data-i18n'));
+    });
+  });
+
+  const docsSearch = document.getElementById('docsSearch');
+  if (docsSearch) {
+    const searchableSections = document.querySelectorAll('.docs-content .content-section, .docs-content .api-item');
+    docsSearch.addEventListener('input', () => {
+      const query = docsSearch.value.trim().toLowerCase();
+      searchableSections.forEach(section => {
+        const text = section.textContent.toLowerCase();
+        section.style.display = !query || text.includes(query) ? '' : 'none';
       });
     });
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        docsSearch.focus();
+      }
+    });
+  }
+
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const docsSidebar = document.querySelector('.docs-sidebar');
+  if (mobileMenuToggle && docsSidebar) {
+    mobileMenuToggle.addEventListener('click', () => {
+      docsSidebar.classList.toggle('mobile-open');
+    });
+  }
+
+  const tocLinks = document.querySelectorAll('.toc-link');
+  if (tocLinks.length) {
+    const sections = Array.from(document.querySelectorAll('.content-section[id]'));
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY + 120;
+      let currentId = sections[0]?.id;
+      sections.forEach(section => {
+        if (section.offsetTop <= scrollPos) currentId = section.id;
+      });
+      tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+      });
+    }, { passive: true });
   }
 });

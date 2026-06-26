@@ -1,200 +1,458 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
   <title>EveryM | Support Center</title>
+
   <meta name="description" content="Get help with EveryM FiveM scripts. Contact support, browse FAQs, and join our community.">
+
   <link rel="stylesheet" href="style.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
-  <link rel="icon" href="EveryM_Favicon.png" type="image/x-icon">
+
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+
+  <link rel="icon" href="EveryM_Favicon.png" type="image/png">
+
 </head>
+
 <body>
+
+
 
 <div id="background"></div>
 
+
+
 <div id="discord-float-container"></div>
+
+
 
 <!-- Navigation -->
+
 <div id="headerbar">
-    <a id="home" class="headerbtns" href="index.html">Home</a>
-    <a id="scripts" class="headerbtns" href="scripts.html">Scripts</a>
-    <a id="docs" class="headerbtns" href="docs.html" target="_blank">Docs</a>
-    <a id="support" class="headerbtns" href="support.html">Support</a>
+
+    <a id="home" class="headerbtns" href="index.html" data-i18n="nav.home">Home</a>
+
+    <a id="scripts" class="headerbtns" href="scripts.html" data-i18n="nav.scripts">Scripts</a>
+
+    <a id="docs" class="headerbtns" href="docs.html" target="_blank" rel="noopener noreferrer" data-i18n="nav.docs">Docs</a>
+
+    <a id="support" class="headerbtns" href="support.html" data-i18n="nav.support">Support</a>
+
     <div id="underlines">
+
         <div id="homeline"></div>
+
         <div id="scriptsline"></div>
+
         <div id="docsline"></div>
+
         <div id="supportline"></div>
+
     </div>
+
 </div>
 
+
+
 <!-- Support Header -->
+
 <section class="support-header">
+
   <div class="container">
-    <h1 id="supporttxt">Need Help?</h1>
-    <p id="supportdsc">We're here to help you get the most out of EveryM Scripts</p>
+
+    <h1 id="supporttxt" data-i18n="support.pageTitle">Need Help?</h1>
+
+    <p id="supportdsc" data-i18n="support.pageDesc">We're here to help you get the most out of EveryM Scripts</p>
+
   </div>
+
 </section>
+
+
 
 <!-- Contact Options -->
+
 <section class="contact-options">
+
   <div class="container">
-    <h2 class="section-title">Get in Touch</h2>
+
+    <h2 class="section-title" data-i18n="support.getInTouch">Get in Touch</h2>
+
     <div class="contact-grid">
-      <div class="contact-card fade-section">
-        <div class="contact-icon">discord</div>
-        <h3>Discord Community</h3>
-        <p>Join our active community for instant support and discussions</p>
+
+      <div class="contact-card">
+
+        <div class="contact-icon"><span class="material-symbols-outlined">forum</span></div>
+
+        <h3 data-i18n="support.discordTitle">Discord Community</h3>
+
+        <p data-i18n="support.discordDesc">Join our active community for instant support and discussions</p>
+
         <div class="contact-stats">
-          <span>24/7 Support</span>
-          <span>1000+ Members</span>
+
+          <span data-i18n="support.discordStat1">24/7 Support</span>
+
+          <span data-i18n="support.discordStat2">1000+ Members</span>
+
         </div>
-        <div id="dcjoin" class="contact-btn">
-          <div id="dclogo"></div>
-          <span>Join Discord</span>
-        </div>
+
+        <button type="button" class="contact-btn dc-join-btn">
+
+          <span class="dclogo" aria-hidden="true"></span>
+
+          <span data-i18n="common.joinDiscord">Join Discord</span>
+
+        </button>
+
       </div>
 
-      <div class="contact-card fade-section">
-        <div class="contact-icon">email</div>
-        <h3>Email Support</h3>
-        <p>Send us an email for detailed inquiries and business proposals</p>
+
+
+      <div class="contact-card">
+
+        <div class="contact-icon"><span class="material-symbols-outlined">mail</span></div>
+
+        <h3 data-i18n="support.emailTitle">Email Support</h3>
+
+        <p data-i18n="support.emailDesc">Send us an email for detailed inquiries and business proposals</p>
+
         <div class="contact-stats">
-          <span>Response: 0-24h</span>
-          <span>Professional Help</span>
+
+          <span data-i18n="support.emailStat1">Response: 0-24h</span>
+
+          <span data-i18n="support.emailStat2">Professional Help</span>
+
         </div>
-        <a href="mailto:support@everym.com" class="contact-btn">Send Email</a>
+
+        <a href="mailto:everymscripts@gmail.com" class="contact-btn" data-i18n="support.sendEmail">Send Email</a>
+
       </div>
 
-      <div class="contact-card fade-section">
-        <div class="contact-icon">play_circle</div>
-        <h3>Video Tutorials</h3>
-        <p>Watch our comprehensive tutorials on YouTube</p>
+
+
+      <div class="contact-card">
+
+        <div class="contact-icon"><span class="material-symbols-outlined">play_circle</span></div>
+
+        <h3 data-i18n="support.videoTitle">Video Tutorials</h3>
+
+        <p data-i18n="support.videoDesc">Watch our comprehensive tutorials on YouTube</p>
+
         <div class="contact-stats">
-          <span>Step-by-Step</span>
-          <span>Updated Regularly</span>
+
+          <span data-i18n="support.videoStat1">Step-by-Step</span>
+
+          <span data-i18n="support.videoStat2">Updated Regularly</span>
+
         </div>
-        <div id="ytjoin" class="contact-btn">
-          <div id="ytlogo"></div>
-          <span>Watch Videos</span>
-        </div>
+
+        <button type="button" class="contact-btn yt-join-btn">
+
+          <span class="ytlogo" aria-hidden="true"></span>
+
+          <span data-i18n="support.watchVideos">Watch Videos</span>
+
+        </button>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
+
+
 
 <!-- FAQ Section -->
+
 <section class="faq-section">
+
   <div class="container">
-    <h2 class="section-title">Frequently Asked Questions</h2>
+
+    <h2 class="section-title" data-i18n="support.faqTitle">Frequently Asked Questions</h2>
+
     <div class="faq-container">
-      <div class="faq-item fade-section">
+
+      <div class="faq-item">
+
         <div class="faq-question">
-          <h3>How do I install a script?</h3>
+
+          <h3 data-i18n="support.faq1Q">How do I install a script?</h3>
+
           <span class="faq-toggle">+</span>
+
         </div>
+
         <div class="faq-answer">
-          <p>Installation is simple! Download the script, extract the files to your server's resources folder, add 'start scriptname' to your server.cfg, and restart your server. Detailed instructions are included with each purchase.</p>
+
+          <p data-i18n="support.faq1A">Installation is simple! Download the script, extract the files to your server's resources folder, add 'start scriptname' to your server.cfg, and restart your server. Detailed instructions are included with each purchase.</p>
+
         </div>
+
       </div>
 
-      <div class="faq-item fade-section">
+
+
+      <div class="faq-item">
+
         <div class="faq-question">
-          <h3>Do you offer refunds?</h3>
+
+          <h3 data-i18n="support.faq2Q">Do you offer refunds?</h3>
+
           <span class="faq-toggle">+</span>
+
         </div>
+
         <div class="faq-answer">
-          <p>We offer a 7-day money-back guarantee if the script doesn't work as described or has technical issues. Please contact our support team with your order details.</p>
+
+          <p data-i18n="support.faq2A">We offer a 7-day money-back guarantee if the script doesn't work as described or has technical issues. Please contact our support team with your order details.</p>
+
         </div>
+
       </div>
 
-      <div class="faq-item fade-section">
+
+
+      <div class="faq-item">
+
         <div class="faq-question">
-          <h3>Are updates included?</h3>
+
+          <h3 data-i18n="support.faq3Q">Are updates included?</h3>
+
           <span class="faq-toggle">+</span>
+
         </div>
+
         <div class="faq-answer">
-          <p>Yes! All purchases include lifetime updates. You'll receive notifications when updates are available through our Discord server or email.</p>
+
+          <p data-i18n="support.faq3A">Yes! All purchases include lifetime updates. You'll receive notifications when updates are available through our Discord server or email.</p>
+
         </div>
+
       </div>
 
-      <div class="faq-item fade-section">
+
+
+      <div class="faq-item">
+
         <div class="faq-question">
-          <h3>Can I customize the scripts?</h3>
+
+          <h3 data-i18n="support.faq4Q">Can I customize the scripts?</h3>
+
           <span class="faq-toggle">+</span>
+
         </div>
+
         <div class="faq-answer">
-          <p>Absolutely! All our scripts come with comprehensive configuration files. You can customize colors, text, functionality, and more to match your server's needs.</p>
+
+          <p data-i18n="support.faq4A">Absolutely! All our scripts come with comprehensive configuration files. You can customize colors, text, functionality, and more to match your server's needs.</p>
+
         </div>
+
       </div>
 
-      <div class="faq-item fade-section">
+
+
+      <div class="faq-item">
+
         <div class="faq-question">
-          <h3>Do you provide custom development?</h3>
+
+          <h3 data-i18n="support.faq5Q">Do you provide custom development?</h3>
+
           <span class="faq-toggle">+</span>
+
         </div>
+
         <div class="faq-answer">
-          <p>Yes, we offer custom script development services. Contact us with your requirements and we'll provide a quote based on complexity and features needed.</p>
+
+          <p data-i18n="support.faq5A">Yes, we offer custom script development services. Contact us with your requirements and we'll provide a quote based on complexity and features needed.</p>
+
         </div>
+
       </div>
 
-      <div class="faq-item fade-section">
+
+
+      <div class="faq-item">
+
         <div class="faq-question">
-          <h3>What payment methods do you accept?</h3>
+
+          <h3 data-i18n="support.faq6Q">What payment methods do you accept?</h3>
+
           <span class="faq-toggle">+</span>
+
         </div>
+
         <div class="faq-answer">
-          <p>We accept PayPal, credit/debit cards, and various cryptocurrency payments. All transactions are secure and processed through trusted payment gateways.</p>
+
+          <p data-i18n="support.faq6A">We accept PayPal, credit/debit cards, and various cryptocurrency payments. All transactions are secure and processed through trusted payment gateways.</p>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
+
+
 
 <!-- Support Resources -->
+
 <section class="support-resources">
+
   <div class="container">
-    <h2 class="section-title">Additional Resources</h2>
+
+    <h2 class="section-title" data-i18n="support.resourcesTitle">Additional Resources</h2>
+
     <div class="resources-grid">
-      <div class="resource-card fade-section">
-        <h3>Documentation</h3>
-        <p>Comprehensive guides and API documentation</p>
-        <a href="docs.html" class="resource-link">View Docs</a>
+
+      <div class="resource-card">
+
+        <h3 data-i18n="support.resDocsTitle">Documentation</h3>
+
+        <p data-i18n="support.resDocsDesc">Comprehensive guides and API documentation</p>
+
+        <a href="docs.html" class="resource-link" data-i18n="common.viewDocs">View Docs</a>
+
       </div>
-      <div class="resource-card fade-section">
-        <h3>Community Forum</h3>
-        <p>Connect with other server owners and developers</p>
-        <a href="#" class="resource-link">Join Forum</a>
+
+      <div class="resource-card">
+
+        <h3 data-i18n="support.resForumTitle">Community Forum</h3>
+
+        <p data-i18n="support.resForumDesc">Connect with other server owners and developers</p>
+
+        <a href="https://discord.com/invite/zgcXpcfHbA" target="_blank" rel="noopener" class="resource-link" data-i18n="support.resForumLink">Join Forum</a>
+
       </div>
-      <div class="resource-card fade-section">
-        <h3>Bug Reports</h3>
-        <p>Report issues and request features</p>
-        <a href="#" class="resource-link">Report Bug</a>
+
+      <div class="resource-card">
+
+        <h3 data-i18n="support.resBugTitle">Bug Reports</h3>
+
+        <p data-i18n="support.resBugDesc">Report issues and request features</p>
+
+        <a href="https://discord.com/invite/zgcXpcfHbA" target="_blank" rel="noopener" class="resource-link" data-i18n="support.resBugLink">Report Bug</a>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
+
+
 
 <!-- CTA Section -->
+
 <section class="cta">
+
   <div class="container">
-    <h2>Still Need Help?</h2>
-    <p>Our support team is ready to assist you with any questions or issues</p>
+
+    <h2 data-i18n="support.ctaTitle">Still Need Help?</h2>
+
+    <p data-i18n="support.ctaDesc">Our support team is ready to assist you with any questions or issues</p>
+
     <div class="cta-buttons">
-      <div id="dcjoin" class="btn-primary">
-        <div id="dclogo"></div>
-        <span id="dcspan">Join Discord Support</span>
-      </div>
-      <a href="mailto:support@everym.com" class="btn-secondary">Email Us</a>
+
+      <button type="button" class="btn-primary dc-join-btn">
+
+        <span class="dclogo" aria-hidden="true"></span>
+
+        <span data-i18n="support.joinDiscordSupport">Join Discord Support</span>
+
+      </button>
+
+      <a href="mailto:everymscripts@gmail.com" class="btn-secondary" data-i18n="support.emailUs">Email Us</a>
+
     </div>
+
   </div>
+
 </section>
 
-<div id="discord-float-container"></div>
+
+
+<footer class="footer">
+
+  <div class="container">
+
+    <div class="footer-content">
+
+      <div class="footer-section">
+
+        <h3>EveryM Scripts</h3>
+
+        <p data-i18n="common.footerDesc">Premium FiveM scripts and resources for server owners who demand quality.</p>
+
+      </div>
+
+      <div class="footer-section">
+
+        <h4 data-i18n="common.quickLinks">Quick Links</h4>
+
+        <ul>
+
+          <li><a href="scripts.html" data-i18n="common.allScripts">All Scripts</a></li>
+
+          <li><a href="docs.html" data-i18n="common.documentation">Documentation</a></li>
+
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+
+        </ul>
+
+      </div>
+
+      <div class="footer-section">
+
+        <h4 data-i18n="common.connect">Connect</h4>
+
+        <ul>
+
+          <li><a href="https://discord.com/invite/zgcXpcfHbA" target="_blank" rel="noopener">Discord</a></li>
+
+          <li><a href="mailto:everymscripts@gmail.com">everymscripts@gmail.com</a></li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <p data-i18n="common.copyright">&copy; 2026 EveryM Scripts. All rights reserved.</p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+  <script src="i18n.js" defer></script>
 
   <script src="script.js" defer></script>
+
 </body>
+
 </html>
+

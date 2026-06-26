@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link rel="icon" href="EveryM_Favicon.png" type="image/png">
 </head>
 <body>
 
@@ -17,10 +18,10 @@
 
 <!-- Navigation -->
 <div id="headerbar">
-    <a id="home" class="headerbtns" href="index.html">Home</a>
-    <a id="scripts" class="headerbtns" href="scripts.html">Scripts</a>
-    <a id="docs" class="headerbtns" href="docs.html" target="_blank">Docs</a>
-    <a id="support" class="headerbtns" href="support.html">Support</a>
+    <a id="home" class="headerbtns" href="index.html" data-i18n="nav.home">Home</a>
+    <a id="scripts" class="headerbtns" href="scripts.html" data-i18n="nav.scripts">Scripts</a>
+    <a id="docs" class="headerbtns" href="docs.html" target="_blank" data-i18n="nav.docs">Docs</a>
+    <a id="support" class="headerbtns" href="support.html" data-i18n="nav.support">Support</a>
     <div id="underlines">
         <div id="homeline"></div>
         <div id="scriptsline"></div>
@@ -36,12 +37,12 @@
     <div class="sidebar-header">
       <div class="logo-section">
         <div class="logo">EveryM</div>
-        <span class="logo-subtitle">Installation Guide</span>
+        <span class="logo-subtitle" data-i18n="docs.installation.subtitle">Installation Guide</span>
       </div>
       
       <!-- Search Component -->
       <div class="search-component">
-        <input type="text" class="search-input" placeholder="Search docs... (⌘K)" id="docsSearch">
+        <input type="text" class="search-input" data-i18n-placeholder="docs.shared.searchPlaceholder" placeholder="Search docs... (⌘K)" id="docsSearch">
         <div class="search-shortcut">⌘K</div>
       </div>
     </div>
@@ -49,22 +50,22 @@
     <!-- Dynamic Navigation Tree -->
     <nav class="docs-nav">
       <div class="nav-section">
-        <div class="nav-title">Installation</div>
+        <div class="nav-title" data-i18n="docs.shared.installation">Installation</div>
         <ul class="nav-list">
-          <li><a href="#prerequisites" class="nav-link">Prerequisites</a></li>
-          <li><a href="#basic-setup" class="nav-link">Basic Setup</a></li>
-          <li><a href="#database-setup" class="nav-link">Database Setup</a></li>
-          <li><a href="#configuration" class="nav-link">Configuration</a></li>
-          <li><a href="#troubleshooting" class="nav-link">Troubleshooting</a></li>
+          <li><a href="#prerequisites" class="nav-link" data-i18n="docs.shared.prerequisites">Prerequisites</a></li>
+          <li><a href="#basic-setup" class="nav-link" data-i18n="docs.shared.basicSetup">Basic Setup</a></li>
+          <li><a href="#database-setup" class="nav-link" data-i18n="docs.shared.databaseSetup">Database Setup</a></li>
+          <li><a href="#configuration" class="nav-link" data-i18n="docs.shared.configuration">Configuration</a></li>
+          <li><a href="#troubleshooting" class="nav-link" data-i18n="docs.shared.troubleshooting">Troubleshooting</a></li>
         </ul>
       </div>
       
       <div class="nav-section">
-        <div class="nav-title">Script Specific</div>
+        <div class="nav-title" data-i18n="docs.shared.scriptSpecific">Script Specific</div>
         <ul class="nav-list">
-          <li><a href="#everym-menu" class="nav-link">EveryM Menu</a></li>
-          <li><a href="#admin-tools" class="nav-link">Admin Tools</a></li>
-          <li><a href="#vehicle-system" class="nav-link">Vehicle System</a></li>
+          <li><a href="#everym-menu" class="nav-link" data-i18n="docs.shared.everymMenu">EveryM Menu</a></li>
+          <li><a href="#admin-tools" class="nav-link" data-i18n="docs.shared.adminTools">Admin Tools</a></li>
+          <li><a href="#vehicle-system" class="nav-link" data-i18n="docs.shared.vehicleSystem">Vehicle System</a></li>
         </ul>
       </div>
     </nav>
@@ -81,33 +82,33 @@
   <!-- Center Content Viewport -->
   <main class="docs-content">
     <article class="content-section" id="prerequisites">
-      <h1 class="content-title">Prerequisites</h1>
-      <p class="content-lead">Before installing EveryM scripts, ensure your server meets these requirements.</p>
+      <h1 class="content-title" data-i18n="docs.shared.prerequisites">Prerequisites</h1>
+      <p class="content-lead" data-i18n="docs.installation.prereqLead">Before installing EveryM scripts, ensure your server meets these requirements.</p>
       
       <div class="installation-module">
-        <h3>Server Requirements</h3>
+        <h3 data-i18n="docs.installation.serverReq">Server Requirements</h3>
         <ul>
-          <li>FiveM Server Build 5849 or higher</li>
-          <li>MySQL 8.0+ or MariaDB 10.5+</li>
-          <li>Minimum 4GB RAM (8GB recommended)</li>
-          <li>Linux or Windows Server</li>
-          <li>Valid EveryM License Key</li>
+          <li data-i18n="docs.installation.req1">FiveM Server Build 5849 or higher</li>
+          <li data-i18n="docs.installation.req2">MySQL 8.0+ or MariaDB 10.5+</li>
+          <li data-i18n="docs.installation.req3">Minimum 4GB RAM (8GB recommended)</li>
+          <li data-i18n="docs.installation.req4">Linux or Windows Server</li>
+          <li data-i18n="docs.installation.req5">Valid EveryM License Key</li>
         </ul>
       </div>
       
       <div class="installation-module">
-        <h3>Required Frameworks</h3>
+        <h3 data-i18n="docs.installation.reqFrameworks">Required Frameworks</h3>
         <ul>
-          <li>es_extended (latest version)</li>
-          <li>oxmysql or mysql-async</li>
-          <li>ox_inventory (for inventory features)</li>
-          <li>ox_target (for interaction system)</li>
+          <li data-i18n="docs.installation.rf1">es_extended (latest version)</li>
+          <li data-i18n="docs.installation.rf2">oxmysql or mysql-async</li>
+          <li data-i18n="docs.installation.rf3">ox_inventory (for inventory features)</li>
+          <li data-i18n="docs.installation.rf4">ox_target (for interaction system)</li>
         </ul>
       </div>
     </article>
     
     <article class="content-section" id="basic-setup">
-      <h1 class="content-title">Basic Setup</h1>
+      <h1 class="content-title" data-i18n="docs.shared.basicSetup">Basic Setup</h1>
       
       <!-- Installation Module -->
       <div class="installation-module">
@@ -456,6 +457,7 @@ VehicleConfig = {
   </aside>
 </div>
 
+<script src="i18n.js" defer></script>
 <script src="script.js" defer></script>
 </body>
 </html>
