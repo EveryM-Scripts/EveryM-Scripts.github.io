@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1b3e"/>
+      <stop offset="100%" stop-color="#1565c0"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64b5f6"/>
+      <stop offset="100%" stop-color="#2196f3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="700" rx="20" fill="url(#sky)"/>
+  <circle cx="650" cy="120" r="80" fill="#2196f3" opacity="0.15"/>
+  <circle cx="120" cy="580" r="100" fill="#64b5f6" opacity="0.12"/>
+  <rect x="80" y="120" width="640" height="420" rx="24" fill="#0a1628" stroke="url(#glow)" stroke-width="3"/>
+  <rect x="110" y="150" width="180" height="360" rx="12" fill="#102a52"/>
+  <rect x="310" y="150" width="380" height="50" rx="8" fill="#2196f3" opacity="0.8"/>
+  <rect x="310" y="220" width="380" height="80" rx="8" fill="#ffffff" opacity="0.08"/>
+  <rect x="310" y="320" width="380" height="80" rx="8" fill="#ffffff" opacity="0.08"/>
+  <rect x="310" y="420" width="200" height="90" rx="8" fill="#ffffff" opacity="0.08"/>
+  <text x="400" y="620" text-anchor="middle" fill="#8bb4e8" font-family="Arial,sans-serif" font-size="28">FiveM Server UI</text>
+</svg>

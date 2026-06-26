@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240">
+  <defs>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3c72"/>
+      <stop offset="100%" stop-color="#2a5298"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="#0a1628"/>
+  <rect x="30" y="24" width="340" height="192" rx="16" fill="url(#panel)" stroke="#64b5f6" stroke-width="2"/>
+  <rect x="50" y="44" width="120" height="12" rx="6" fill="#64b5f6" opacity="0.9"/>
+  <rect x="50" y="68" width="90" height="8" rx="4" fill="#ffffff" opacity="0.35"/>
+  <rect x="50" y="96" width="300" height="36" rx="8" fill="#ffffff" opacity="0.08"/>
+  <rect x="50" y="144" width="300" height="36" rx="8" fill="#ffffff" opacity="0.08"/>
+  <rect x="50" y="192" width="140" height="10" rx="5" fill="#2196f3"/>
+  <text x="200" y="130" text-anchor="middle" fill="#ffffff" font-family="Arial,sans-serif" font-size="28" font-weight="700">EveryM Menu</text>
+</svg>

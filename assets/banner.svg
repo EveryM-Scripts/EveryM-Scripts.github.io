@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1628"/>
+      <stop offset="50%" stop-color="#102a52"/>
+      <stop offset="100%" stop-color="#0d47a1"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64b5f6"/>
+      <stop offset="100%" stop-color="#2196f3"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="280" fill="url(#bg)"/>
+  <circle cx="150" cy="140" r="90" fill="#2196f3" opacity="0.12"/>
+  <circle cx="1050" cy="60" r="120" fill="#64b5f6" opacity="0.1"/>
+  <rect x="80" y="90" width="6" height="100" rx="3" fill="url(#accent)"/>
+  <text x="110" y="130" fill="#ffffff" font-family="Arial,sans-serif" font-size="42" font-weight="700">EveryM Scripts</text>
+  <text x="110" y="175" fill="#8bb4e8" font-family="Arial,sans-serif" font-size="22">Premium FiveM Resources</text>
+</svg>
