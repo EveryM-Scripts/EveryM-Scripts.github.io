@@ -16,24 +16,21 @@
 
 <div id="background"></div>
 
-<!-- Three Column Layout -->
 <div class="docs-layout">
-  <!-- Left Sidebar Navigation -->
+
   <aside class="docs-sidebar">
     <div class="sidebar-header">
       <div class="logo-section">
         <div class="logo">EveryM</div>
         <span class="logo-subtitle" data-i18n="docs.shared.documentation">Documentation</span>
       </div>
-      
-      <!-- Search Component -->
+
       <div class="search-component">
         <input type="text" class="search-input" data-i18n-placeholder="docs.shared.searchPlaceholder" placeholder="Search docs... (⌘K)" id="docsSearch">
         <div class="search-shortcut">⌘K</div>
       </div>
     </div>
-    
-    <!-- Dynamic Navigation Tree -->
+
     <nav class="docs-nav">
       <div class="nav-section">
         <div class="nav-title" data-i18n="docs.shared.gettingStarted">Getting Started</div>
@@ -43,7 +40,7 @@
           <li><a href="#general-faq" class="nav-link" data-i18n="docs.shared.generalFaq">General FAQ</a></li>
         </ul>
       </div>
-      
+
       <div class="nav-section">
         <div class="nav-accordion">
           <div class="nav-accordion-header">
@@ -59,7 +56,7 @@
           </ul>
         </div>
       </div>
-      
+
       <div class="nav-section">
         <div class="nav-accordion">
           <div class="nav-accordion-header">
@@ -74,7 +71,7 @@
           </ul>
         </div>
       </div>
-      
+
       <div class="nav-section">
         <div class="nav-accordion">
           <div class="nav-accordion-header">
@@ -89,8 +86,7 @@
         </div>
       </div>
     </nav>
-    
-    <!-- Footer -->
+
     <div class="sidebar-footer">
       <div class="social-links">
         <a href="https://discord.com/invite/zgcXpcfHbA" target="_blank" rel="noopener" class="social-link">Discord</a>
@@ -98,14 +94,12 @@
       </div>
     </div>
   </aside>
-  
-  <!-- Center Content Viewport -->
+
   <main class="docs-content">
     <article class="content-section" id="introduction">
       <h1 class="content-title" data-i18n="docs.shared.introduction">Introduction</h1>
       <p class="content-lead" data-i18n="docs.main.introLead">Welcome to EveryM Scripts - the premier destination for high-quality FiveM scripts and resources.</p>
-      
-      <!-- Feature Cards -->
+
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-icon">⚡</div>
@@ -160,11 +154,10 @@
         </ul>
       </div>
     </article>
-    
+
     <article class="content-section" id="everym-menu-installation">
       <h1 class="content-title" data-i18n="docs.main.installGuideTitle">EveryM Menu - Installation Guide</h1>
-      
-      <!-- Notice Box -->
+
       <div class="notice-box success">
         <div class="notice-icon">✓</div>
         <div class="notice-content">
@@ -172,8 +165,7 @@
           <p data-i18n="docs.shared.followSteps">Follow these steps for a successful setup</p>
         </div>
       </div>
-      
-      <!-- Installation Module -->
+
       <div class="installation-module">
         <div class="step-indicator">
           <div class="step completed">1</div>
@@ -181,12 +173,11 @@
           <div class="step active">3</div>
           <div class="step">4</div>
         </div>
-        
+
         <div class="installation-content">
           <h3 data-i18n="docs.main.step3Title">Step 3: Configure Server Settings</h3>
           <p data-i18n="docs.main.step3Desc">Edit your server.cfg file to include the following:</p>
-          
-          <!-- Code Block -->
+
           <div class="code-block">
             <div class="code-header">
               <span class="code-language">lua</span>
@@ -197,7 +188,7 @@ start everym
 set everym_menu_endpoint "https://your-server.com/api"
 set everym_license "your-license-key"</code></pre>
           </div>
-          
+
           <div class="installation-notes">
             <h4 data-i18n="docs.shared.importantNotes">Important Notes:</h4>
             <ul>
@@ -209,17 +200,16 @@ set everym_license "your-license-key"</code></pre>
         </div>
       </div>
     </article>
-    
+
     <article class="content-section" id="everym-menu-api">
       <h1 class="content-title" data-i18n="docs.shared.apiReference">API Reference</h1>
-      
-      <!-- Resource Tabs -->
+
       <div class="resource-tabs">
         <button class="resource-tab active" data-resource="client-events" data-i18n="docs.shared.clientEvents">Client Events</button>
         <button class="resource-tab" data-resource="server-events" data-i18n="docs.shared.serverEvents">Server Events</button>
         <button class="resource-tab" data-resource="exports" data-i18n="docs.shared.exportFunctions">Export Functions</button>
       </div>
-      
+
       <div class="api-content">
         <div class="api-item">
           <h4>everym:openMenu</h4>
@@ -233,7 +223,7 @@ set everym_license "your-license-key"</code></pre>
 TriggerEvent('everym:openMenu')</code></pre>
           </div>
         </div>
-        
+
         <div class="api-item">
           <h4>exports['everym']:GetPlayerData()</h4>
           <p data-i18n="docs.main.getPlayerDesc">Returns comprehensive player data object</p>
@@ -249,8 +239,7 @@ print(playerData.identifier)</code></pre>
         </div>
       </div>
     </article>
-    
-    <!-- Review Slider -->
+
     <section class="review-slider">
       <h2 class="section-title" data-i18n="docs.shared.customerReviews">Customer Reviews</h2>
       <div class="review-grid">
@@ -268,7 +257,7 @@ print(playerData.identifier)</code></pre>
             <span class="review-date">2 days ago</span>
           </div>
         </div>
-        
+
         <div class="review-card">
           <div class="review-header">
             <div class="review-avatar">SM</div>
@@ -286,8 +275,7 @@ print(playerData.identifier)</code></pre>
       </div>
     </section>
   </main>
-  
-  <!-- Right Table of Contents -->
+
   <aside class="docs-toc">
     <div class="toc-header">
       <h3 data-i18n="docs.shared.onThisPage">On This Page</h3>
@@ -301,8 +289,7 @@ print(playerData.identifier)</code></pre>
         <li><a href="#everym-menu-api" class="toc-link" data-i18n="docs.shared.apiReference">API Reference</a></li>
       </ul>
     </nav>
-    
-    <!-- Quick Actions -->
+
     <div class="quick-actions">
       <h3 data-i18n="docs.shared.quickLinks">Quick Links</h3>
       <div class="action-links">
@@ -315,7 +302,6 @@ print(playerData.identifier)</code></pre>
   </aside>
 </div>
 
-<!-- Mobile Bottom Actions -->
 <div class="mobile-actions">
   <button class="mobile-menu-toggle" id="mobileMenuToggle">
     <span></span>

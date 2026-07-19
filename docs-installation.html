@@ -16,7 +16,6 @@
 
 <div id="background"></div>
 
-<!-- Navigation -->
 <div id="headerbar">
     <a id="home" class="headerbtns" href="index.html" data-i18n="nav.home">Home</a>
     <a id="scripts" class="headerbtns" href="scripts.html" data-i18n="nav.scripts">Scripts</a>
@@ -30,24 +29,21 @@
     </div>
 </div>
 
-<!-- Three Column Layout -->
 <div class="docs-layout">
-  <!-- Left Sidebar Navigation -->
+
   <aside class="docs-sidebar">
     <div class="sidebar-header">
       <div class="logo-section">
         <div class="logo">EveryM</div>
         <span class="logo-subtitle" data-i18n="docs.installation.subtitle">Installation Guide</span>
       </div>
-      
-      <!-- Search Component -->
+
       <div class="search-component">
         <input type="text" class="search-input" data-i18n-placeholder="docs.shared.searchPlaceholder" placeholder="Search docs... (⌘K)" id="docsSearch">
         <div class="search-shortcut">⌘K</div>
       </div>
     </div>
-    
-    <!-- Dynamic Navigation Tree -->
+
     <nav class="docs-nav">
       <div class="nav-section">
         <div class="nav-title" data-i18n="docs.shared.installation">Installation</div>
@@ -59,7 +55,7 @@
           <li><a href="#troubleshooting" class="nav-link" data-i18n="docs.shared.troubleshooting">Troubleshooting</a></li>
         </ul>
       </div>
-      
+
       <div class="nav-section">
         <div class="nav-title" data-i18n="docs.shared.scriptSpecific">Script Specific</div>
         <ul class="nav-list">
@@ -69,8 +65,7 @@
         </ul>
       </div>
     </nav>
-    
-    <!-- Footer -->
+
     <div class="sidebar-footer">
       <div class="social-links">
         <a href="#" class="social-link">Discord</a>
@@ -78,13 +73,12 @@
       </div>
     </div>
   </aside>
-  
-  <!-- Center Content Viewport -->
+
   <main class="docs-content">
     <article class="content-section" id="prerequisites">
       <h1 class="content-title" data-i18n="docs.shared.prerequisites">Prerequisites</h1>
       <p class="content-lead" data-i18n="docs.installation.prereqLead">Before installing EveryM scripts, ensure your server meets these requirements.</p>
-      
+
       <div class="installation-module">
         <h3 data-i18n="docs.installation.serverReq">Server Requirements</h3>
         <ul>
@@ -95,7 +89,7 @@
           <li data-i18n="docs.installation.req5">Valid EveryM License Key</li>
         </ul>
       </div>
-      
+
       <div class="installation-module">
         <h3 data-i18n="docs.installation.reqFrameworks">Required Frameworks</h3>
         <ul>
@@ -106,11 +100,10 @@
         </ul>
       </div>
     </article>
-    
+
     <article class="content-section" id="basic-setup">
       <h1 class="content-title" data-i18n="docs.shared.basicSetup">Basic Setup</h1>
-      
-      <!-- Installation Module -->
+
       <div class="installation-module">
         <div class="step-indicator">
           <div class="step">1</div>
@@ -118,11 +111,11 @@
           <div class="step">3</div>
           <div class="step">4</div>
         </div>
-        
+
         <div class="installation-content">
           <h3>Step 1: Download Scripts</h3>
           <p>Download your purchased scripts from the EveryM store. Extract the ZIP file to your server's resources folder.</p>
-          
+
           <div class="code-block">
             <div class="code-header">
               <span class="code-language">bash</span>
@@ -132,10 +125,10 @@
 cd /path/to/server/resources
 unzip everym-scripts.zip</code></pre>
           </div>
-          
+
           <h3>Step 2: Configure server.cfg</h3>
           <p>Add the following lines to your server.cfg file:</p>
-          
+
           <div class="code-block">
             <div class="code-header">
               <span class="code-language">cfg</span>
@@ -153,10 +146,10 @@ set mysql_connection_string "mysql://user:password@localhost/database"
 # License Configuration
 set everym_license "your-license-key-here"</code></pre>
           </div>
-          
+
           <h3>Step 3: Database Setup</h3>
           <p>Import the provided SQL files into your database:</p>
-          
+
           <div class="code-block">
             <div class="code-header">
               <span class="code-language">sql</span>
@@ -167,10 +160,10 @@ mysql -u username -p database_name < sql/everym_core.sql
 mysql -u username -p database_name < sql/everym_menu.sql
 mysql -u username -p database_name < sql/everym_vehicles.sql</code></pre>
           </div>
-          
+
           <h3>Step 4: Start Server</h3>
           <p>Restart your FiveM server to load all scripts. Check the console for any errors.</p>
-          
+
           <div class="installation-notes">
             <h4>Important Notes:</h4>
             <ul>
@@ -183,14 +176,14 @@ mysql -u username -p database_name < sql/everym_vehicles.sql</code></pre>
         </div>
       </div>
     </article>
-    
+
     <article class="content-section" id="database-setup">
       <h1 class="content-title">Database Setup</h1>
-      
+
       <div class="installation-module">
         <h3>MySQL Configuration</h3>
         <p>Configure your MySQL server for optimal performance with EveryM scripts:</p>
-        
+
         <div class="code-block">
           <div class="code-header">
             <span class="code-language">sql</span>
@@ -205,7 +198,7 @@ GRANT ALL PRIVILEGES ON everym_server.* TO 'everym'@'localhost';
 FLUSH PRIVILEGES;</code></pre>
         </div>
       </div>
-      
+
       <div class="installation-module">
         <h3>Database Tables</h3>
         <p>EveryM scripts will automatically create necessary tables on first startup:</p>
@@ -217,14 +210,14 @@ FLUSH PRIVILEGES;</code></pre>
         </ul>
       </div>
     </article>
-    
+
     <article class="content-section" id="configuration">
       <h1 class="content-title">Configuration</h1>
-      
+
       <div class="installation-module">
         <h3>Main Configuration File</h3>
         <p>Edit the <code>config/config.lua</code> file to customize script behavior:</p>
-        
+
         <div class="code-block">
           <div class="code-header">
             <span class="code-language">lua</span>
@@ -234,7 +227,7 @@ FLUSH PRIVILEGES;</code></pre>
     Framework = 'esx',
     Database = 'mysql',
     Locale = 'en',
-    
+
     -- Menu Configuration
     Menu = {
         Key = 'F2',
@@ -242,7 +235,7 @@ FLUSH PRIVILEGES;</code></pre>
         Theme = 'dark',
         Animation = true
     },
-    
+
     -- Admin Configuration
     Admin = {
         Permissions = {
@@ -253,7 +246,7 @@ FLUSH PRIVILEGES;</code></pre>
         Logging = true,
         Notifications = true
     },
-    
+
     -- Vehicle Configuration
     Vehicles = {
         SpawnInside = true,
@@ -264,7 +257,7 @@ FLUSH PRIVILEGES;</code></pre>
 }</code></pre>
         </div>
       </div>
-      
+
       <div class="installation-module">
         <h3>Advanced Settings</h3>
         <ul>
@@ -275,13 +268,13 @@ FLUSH PRIVILEGES;</code></pre>
         </ul>
       </div>
     </article>
-    
+
     <article class="content-section" id="troubleshooting">
       <h1 class="content-title">Troubleshooting</h1>
-      
+
       <div class="installation-module">
         <h3>Common Installation Issues</h3>
-        
+
         <div class="notice-box warning">
           <div class="notice-icon">⚠️</div>
           <div class="notice-content">
@@ -289,7 +282,7 @@ FLUSH PRIVILEGES;</code></pre>
             <p>Check if all dependencies are properly installed and started before EveryM scripts.</p>
           </div>
         </div>
-        
+
         <div class="notice-box critical">
           <div class="notice-icon">✕</div>
           <div class="notice-content">
@@ -297,7 +290,7 @@ FLUSH PRIVILEGES;</code></pre>
             <p>Verify your database credentials and ensure MySQL server is running.</p>
           </div>
         </div>
-        
+
         <h4>Solutions:</h4>
         <ul>
           <li>Check server console for error messages</li>
@@ -308,14 +301,14 @@ FLUSH PRIVILEGES;</code></pre>
         </ul>
       </div>
     </article>
-    
+
     <article class="content-section" id="everym-menu">
       <h1 class="content-title">EveryM Menu Setup</h1>
-      
+
       <div class="installation-module">
         <h3>Menu Configuration</h3>
         <p>Specific settings for EveryM Menu:</p>
-        
+
         <div class="code-block">
           <div class="code-header">
             <span class="code-language">lua</span>
@@ -329,14 +322,14 @@ MenuConfig = {
         'admin' = true,
         'inventory' = true
     },
-    
+
     UI = {
         Theme = 'dark',
         Position = 'top-left',
         Size = 'medium',
         Blur = true
     },
-    
+
     Features = {
         Search = true,
         Favorites = true,
@@ -347,14 +340,14 @@ MenuConfig = {
         </div>
       </div>
     </article>
-    
+
     <article class="content-section" id="admin-tools">
       <h1 class="content-title">Admin Tools Setup</h1>
-      
+
       <div class="installation-module">
         <h3>Admin Configuration</h3>
         <p>Configure admin tools and permissions:</p>
-        
+
         <div class="code-block">
           <div class="code-header">
             <span class="code-language">lua</span>
@@ -368,13 +361,13 @@ AdminConfig = {
         ['teleport'] = 'moderator',
         ['spawn'] = 'admin'
     },
-    
+
     Logging = {
         Enabled = true,
         Level = 'all',
         File = 'logs/admin.log'
     },
-    
+
     Features = {
         Spectate = true,
         Teleport = true,
@@ -385,14 +378,14 @@ AdminConfig = {
         </div>
       </div>
     </article>
-    
+
     <article class="content-section" id="vehicle-system">
       <h1 class="content-title">Vehicle System Setup</h1>
-      
+
       <div class="installation-module">
         <h3>Vehicle Configuration</h3>
         <p>Configure vehicle system features:</p>
-        
+
         <div class="code-block">
           <div class="code-header">
             <span class="code-language">lua</span>
@@ -406,14 +399,14 @@ VehicleConfig = {
         Delay = 2000,
         Animation = true
     },
-    
+
     Storage = {
         SavePosition = true,
         SaveHealth = true,
         SaveFuel = true,
         SaveCustomization = true
     },
-    
+
     Features = {
         CustomPlates = true,
         VehicleShop = true,
@@ -425,8 +418,7 @@ VehicleConfig = {
       </div>
     </article>
   </main>
-  
-  <!-- Right Table of Contents -->
+
   <aside class="docs-toc">
     <div class="toc-header">
       <h3>On This Page</h3>
@@ -443,8 +435,7 @@ VehicleConfig = {
         <li><a href="#vehicle-system" class="toc-link">Vehicle System</a></li>
       </ul>
     </nav>
-    
-    <!-- Quick Actions -->
+
     <div class="quick-actions">
       <h3>Quick Links</h3>
       <div class="action-links">

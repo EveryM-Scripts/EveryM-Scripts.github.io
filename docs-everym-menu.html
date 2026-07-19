@@ -16,7 +16,6 @@
 
 <div id="background"></div>
 
-<!-- Navigation -->
 <div id="headerbar">
     <a id="home" class="headerbtns" href="index.html" data-i18n="nav.home">Home</a>
     <a id="scripts" class="headerbtns" href="scripts.html" data-i18n="nav.scripts">Scripts</a>
@@ -30,24 +29,21 @@
     </div>
 </div>
 
-<!-- Three Column Layout -->
 <div class="docs-layout">
-  <!-- Left Sidebar Navigation -->
+
   <aside class="docs-sidebar">
     <div class="sidebar-header">
       <div class="logo-section">
         <div class="logo">EveryM</div>
         <span class="logo-subtitle" data-i18n="docs.everymMenu.subtitle">EveryM Menu</span>
       </div>
-      
-      <!-- Search Component -->
+
       <div class="search-component">
         <input type="text" class="search-input" data-i18n-placeholder="docs.shared.searchPlaceholder" placeholder="Search docs... (⌘K)" id="docsSearch">
         <div class="search-shortcut">⌘K</div>
       </div>
     </div>
-    
-    <!-- Dynamic Navigation Tree -->
+
     <nav class="docs-nav">
       <div class="nav-section">
         <div class="nav-title" data-i18n="docs.shared.everymMenu">EveryM Menu</div>
@@ -61,8 +57,7 @@
         </ul>
       </div>
     </nav>
-    
-    <!-- Footer -->
+
     <div class="sidebar-footer">
       <div class="social-links">
         <a href="https://discord.com/invite/zgcXpcfHbA" target="_blank" rel="noopener" class="social-link">Discord</a>
@@ -70,14 +65,12 @@
       </div>
     </div>
   </aside>
-  
-  <!-- Center Content Viewport -->
+
   <main class="docs-content">
     <article class="content-section" id="introduction">
       <h1 class="content-title" data-i18n="docs.shared.everymMenu">EveryM Menu</h1>
       <p class="content-lead" data-i18n="docs.everymMenu.introLead">The most advanced and feature-rich admin menu for FiveM servers. EveryM Menu provides comprehensive server management tools with an intuitive interface and powerful customization options.</p>
-      
-      <!-- Feature Cards -->
+
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-icon">⚡</div>
@@ -99,10 +92,10 @@
         </div>
       </div>
     </article>
-    
+
     <article class="content-section" id="features">
       <h1 class="content-title" data-i18n="docs.shared.features">Features</h1>
-      
+
       <div class="installation-module">
         <h3 data-i18n="docs.everymMenu.coreFeatures">Core Features</h3>
         <ul>
@@ -116,7 +109,7 @@
           <li data-i18n="docs.everymMenu.cf8">Server economy tools</li>
         </ul>
       </div>
-      
+
       <div class="installation-module">
         <h3 data-i18n="docs.everymMenu.advancedFeatures">Advanced Features</h3>
         <ul>
@@ -130,11 +123,10 @@
         </ul>
       </div>
     </article>
-    
+
     <article class="content-section" id="installation">
       <h1 class="content-title" data-i18n="docs.shared.installationGuide">Installation Guide</h1>
-      
-      <!-- Notice Box -->
+
       <div class="notice-box success">
         <div class="notice-icon">✓</div>
         <div class="notice-content">
@@ -142,8 +134,7 @@
           <p>Follow these steps for a successful setup</p>
         </div>
       </div>
-      
-      <!-- Installation Module -->
+
       <div class="installation-module">
         <div class="step-indicator">
           <div class="step completed">1</div>
@@ -151,15 +142,14 @@
           <div class="step completed">3</div>
           <div class="step completed">4</div>
         </div>
-        
+
         <div class="installation-content">
           <h3>Step 1: Download Files</h3>
           <p>Download the EveryM Menu files from our store and extract them to your server's resources folder.</p>
-          
+
           <h3>Step 2: Configure Server</h3>
           <p>Edit your server.cfg file to include the following:</p>
-          
-          <!-- Code Block -->
+
           <div class="code-block">
             <div class="code-header">
               <span class="code-language">lua</span>
@@ -171,10 +161,10 @@ set everym_menu_endpoint "https://your-server.com/api"
 set everym_license "your-license-key"
 ensure es_extended</code></pre>
           </div>
-          
+
           <h3>Step 3: Database Setup</h3>
           <p>Import the provided SQL file into your database:</p>
-          
+
           <div class="code-block">
             <div class="code-header">
               <span class="code-language">sql</span>
@@ -183,10 +173,10 @@ ensure es_extended</code></pre>
             <pre class="code-content"><code>-- Import this file into your MySQL database
 mysql -u username -p database_name < everym_menu.sql</code></pre>
           </div>
-          
+
           <h3>Step 4: Restart Server</h3>
           <p>Restart your FiveM server to load EveryM Menu. The menu will be available to all administrators with proper permissions.</p>
-          
+
           <div class="installation-notes">
             <h4>Important Notes:</h4>
             <ul>
@@ -199,14 +189,14 @@ mysql -u username -p database_name < everym_menu.sql</code></pre>
         </div>
       </div>
     </article>
-    
+
     <article class="content-section" id="configuration">
       <h1 class="content-title">Configuration</h1>
-      
+
       <div class="installation-module">
         <h3>Basic Configuration</h3>
         <p>Customize EveryM Menu behavior through the configuration file:</p>
-        
+
         <div class="code-block">
           <div class="code-header">
             <span class="code-language">lua</span>
@@ -228,7 +218,7 @@ mysql -u username -p database_name < everym_menu.sql</code></pre>
 }</code></pre>
         </div>
       </div>
-      
+
       <div class="installation-module">
         <h3>Advanced Settings</h3>
         <ul>
@@ -240,17 +230,16 @@ mysql -u username -p database_name < everym_menu.sql</code></pre>
         </ul>
       </div>
     </article>
-    
+
     <article class="content-section" id="api">
       <h1 class="content-title">API Reference</h1>
-      
-      <!-- Resource Tabs -->
+
       <div class="resource-tabs">
         <button class="resource-tab active" data-resource="client-events">Client Events</button>
         <button class="resource-tab" data-resource="server-events">Server Events</button>
         <button class="resource-tab" data-resource="exports">Export Functions</button>
       </div>
-      
+
       <div class="api-content">
         <div class="api-item">
           <h4>everym:openMenu</h4>
@@ -264,7 +253,7 @@ mysql -u username -p database_name < everym_menu.sql</code></pre>
 TriggerEvent('everym:openMenu')</code></pre>
           </div>
         </div>
-        
+
         <div class="api-item">
           <h4>exports['everym']:GetPlayerData()</h4>
           <p>Returns comprehensive player data object</p>
@@ -278,7 +267,7 @@ local playerData = exports['everym']:GetPlayerData(source)
 print(playerData.identifier)</code></pre>
           </div>
         </div>
-        
+
         <div class="api-item">
           <h4>everym:playerAction</h4>
           <p>Triggered when a player performs an admin action</p>
@@ -296,13 +285,13 @@ end)</code></pre>
         </div>
       </div>
     </article>
-    
+
     <article class="content-section" id="troubleshooting">
       <h1 class="content-title">Troubleshooting</h1>
-      
+
       <div class="installation-module">
         <h3>Common Issues</h3>
-        
+
         <div class="notice-box warning">
           <div class="notice-icon">⚠️</div>
           <div class="notice-content">
@@ -310,7 +299,7 @@ end)</code></pre>
             <p>Check if the menu key is configured correctly and that you have admin permissions.</p>
           </div>
         </div>
-        
+
         <div class="notice-box critical">
           <div class="notice-icon">✕</div>
           <div class="notice-content">
@@ -318,7 +307,7 @@ end)</code></pre>
             <p>Verify your MySQL credentials and ensure the database server is running.</p>
           </div>
         </div>
-        
+
         <h4>Solutions:</h4>
         <ul>
           <li>Verify resource is started in server.cfg</li>
@@ -330,8 +319,7 @@ end)</code></pre>
       </div>
     </article>
   </main>
-  
-  <!-- Right Table of Contents -->
+
   <aside class="docs-toc">
     <div class="toc-header">
       <h3>On This Page</h3>
@@ -346,8 +334,7 @@ end)</code></pre>
         <li><a href="#troubleshooting" class="toc-link">Troubleshooting</a></li>
       </ul>
     </nav>
-    
-    <!-- Quick Actions -->
+
     <div class="quick-actions">
       <h3>Quick Links</h3>
       <div class="action-links">

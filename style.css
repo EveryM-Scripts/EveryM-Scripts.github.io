@@ -15,7 +15,7 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   min-height: 100%;
-  cursor: default;  
+  cursor: default;
   box-sizing: border-box;
   line-height: 1.45;
 }
@@ -208,14 +208,12 @@ body {
   background-clip: text;
 }
 
-/* Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Header Banner */
 .header-banner {
   width: 100%;
   display: flex;
@@ -235,7 +233,6 @@ body {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
-/* Hero Section */
 .hero {
   min-height: auto;
   display: flex;
@@ -342,7 +339,6 @@ body {
   50% { transform: translateY(-20px); }
 }
 
-/* Stats Section */
 .stats {
   padding: 16px 20px 28px;
 }
@@ -374,7 +370,6 @@ body {
   font-weight: 500;
 }
 
-/* Features Section */
 .features {
   padding: 36px 20px 24px;
 }
@@ -440,7 +435,6 @@ body {
   margin: 0;
 }
 
-/* Popular Scripts Section */
 .popular-scripts {
   padding: 36px 20px 24px;
 }
@@ -516,7 +510,6 @@ body {
   text-align: center;
 }
 
-/* Testimonials Section */
 .testimonials {
   padding: 36px 20px 24px;
 }
@@ -584,7 +577,6 @@ body {
   margin-top: 3px;
 }
 
-/* CTA Section */
 .cta {
   padding: 24px 20px;
   text-align: center;
@@ -614,7 +606,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* Footer */
 .footer {
   padding: 60px 20px 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -968,7 +959,6 @@ body {
   background: url('constructionimg.png') no-repeat center/contain;
 }
 
-/* Scripts listing area */
 #scriptsbox {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -1164,7 +1154,6 @@ body {
   .product { width: calc(100% - 48px); }
 }
 
-/* Support Page Styles */
 .support-header {
   padding: 80px 20px 16px;
   text-align: center;
@@ -1205,7 +1194,6 @@ body {
   line-height: 1.35;
 }
 
-/* Contact Options */
 .contact-options {
   padding: 36px 20px 12px;
 }
@@ -1297,7 +1285,6 @@ body {
   background: linear-gradient(135deg, #1976d2, #1565c0);
 }
 
-/* FAQ Section */
 .faq-section {
   padding: 36px 20px 12px;
 }
@@ -1371,7 +1358,6 @@ body {
   margin: 0;
 }
 
-/* Support Resources */
 .support-resources {
   padding: 36px 20px 20px;
 }
@@ -1428,7 +1414,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* Professional Documentation Layout */
 .docs-layout {
   display: grid;
   grid-template-columns: 280px 1fr 320px;
@@ -1438,7 +1423,6 @@ body {
   padding: 20px;
 }
 
-/* Left Sidebar */
 .docs-sidebar {
   background: rgba(10, 15, 35, 0.8);
   border: 1px solid rgba(33, 150, 243, 0.2);
@@ -1522,7 +1506,6 @@ body {
   border-radius: 4px;
 }
 
-/* Navigation */
 .docs-nav {
   flex: 1;
   padding: 0 24px 24px;
@@ -1669,7 +1652,6 @@ body {
   color: #2196f3;
 }
 
-/* Center Content */
 .docs-content {
   padding: 48px;
   background: rgba(5, 12, 31, 0.6);
@@ -1705,7 +1687,6 @@ body {
   margin-bottom: 32px;
 }
 
-/* Feature Cards */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1756,7 +1737,6 @@ body {
   line-height: 1.5;
 }
 
-/* Notice Boxes */
 .notice-box {
   display: flex;
   align-items: flex-start;
@@ -1801,7 +1781,6 @@ body {
   margin: 0;
 }
 
-/* Installation Module */
 .installation-module {
   background: rgba(15, 20, 40, 0.8);
   border: 1px solid rgba(33, 150, 243, 0.2);
@@ -1858,7 +1837,6 @@ body {
   margin-bottom: 16px;
 }
 
-/* Code Blocks */
 .code-block {
   background: rgba(10, 15, 35, 0.8);
   border: 1px solid rgba(33, 150, 243, 0.2);
@@ -1951,7 +1929,6 @@ body {
   color: #2196f3;
 }
 
-/* Resource Tabs */
 .resource-tabs {
   display: flex;
   gap: 8px;
@@ -1979,7 +1956,6 @@ body {
   border-bottom-color: #2196f3;
 }
 
-/* API Content */
 .api-content {
   background: rgba(10, 15, 35, 0.8);
   border: 1px solid rgba(33, 150, 243, 0.2);
@@ -2012,7 +1988,6 @@ body {
   margin-bottom: 12px;
 }
 
-/* Right TOC */
 .docs-toc {
   background: rgba(10, 15, 35, 0.8);
   border: 1px solid rgba(33, 150, 243, 0.2);
@@ -2099,7 +2074,6 @@ body {
   box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
 }
 
-/* Review Slider */
 .review-slider {
   background: #1a1a1a;
   border: 1px solid #2a2a2a;
@@ -2181,7 +2155,6 @@ body {
   color: #666;
 }
 
-/* Mobile Actions */
 .mobile-actions {
   display: none;
   position: fixed;
@@ -2234,7 +2207,6 @@ body {
   color: #2196f3;
 }
 
-/* Responsive Design */
 @media (max-width: 1200px) {
   .docs-layout {
     grid-template-columns: 250px 1fr 280px;
@@ -2245,7 +2217,7 @@ body {
   .docs-layout {
     grid-template-columns: 1fr;
   }
-  
+
   .docs-sidebar {
     display: none;
     position: fixed;
@@ -2260,21 +2232,20 @@ body {
   .docs-sidebar.mobile-open {
     display: flex;
   }
-  
+
   .docs-content {
     padding: 24px;
   }
-  
+
   .docs-toc {
     display: none;
   }
-  
+
   .mobile-actions {
     display: block;
   }
 }
 
-/* Enhanced Visual Effects */
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
@@ -2301,7 +2272,6 @@ body {
   50% { box-shadow: 0 0 40px rgba(100, 181, 246, 0.8); }
 }
 
-/* Loading Animation */
 .loading {
   display: inline-block;
   width: 20px;
@@ -2316,7 +2286,6 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* Enhanced Button Effects */
 .btn-primary, .btn-secondary, .product-btn, .contact-btn {
   position: relative;
   overflow: hidden;
@@ -2337,7 +2306,6 @@ body {
   left: 100%;
 }
 
-/* Card Hover Effects */
 .feature-card, .preview-card, .testimonial-card, .contact-card, .resource-card {
   position: relative;
   overflow: hidden;
@@ -2360,7 +2328,6 @@ body {
   opacity: 1;
 }
 
-/* Text Gradient Animation */
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -2375,17 +2342,14 @@ body {
   animation: gradientShift 8s ease infinite;
 }
 
-/* Enhanced Search Bar */
 .scriptsearch:focus {
   animation: glow 2s ease-in-out infinite;
 }
 
-/* Parallax Effect */
 .parallax {
   transition: transform 0.1s ease-out;
 }
 
-/* Notification Badge */
 .notification-badge {
   position: absolute;
   top: -8px;
@@ -2403,7 +2367,6 @@ body {
   animation: pulse 2s infinite;
 }
 
-/* Scroll Progress Bar */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -2415,7 +2378,6 @@ body {
   transition: width 0.1s ease;
 }
 
-/* Enhanced Mobile Responsiveness */
 @media (max-width: 420px) {
   #headerbar { padding: 6px 10px; gap: 8px; }
   #text { font-size: 1.9rem; top: auto; }
@@ -2427,8 +2389,7 @@ body {
   #supporttxt { font-size: 2.5rem; }
   .contact-grid { grid-template-columns: 1fr; }
   .resources-grid { grid-template-columns: 1fr; }
-  
-  /* Mobile Optimizations */
+
   .hero { flex-direction: column; gap: 16px; }
   .hero-visual { order: -1; }
   .stats-container { grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -2436,7 +2397,6 @@ body {
   .testimonials-grid { grid-template-columns: 1fr; }
 }
 
-/* Product Modal Styles */
 .product-modal {
   display: none;
   position: fixed;
@@ -2520,12 +2480,12 @@ body {
   padding: 30px;
   overflow-y: auto;
   max-height: calc(90vh - 200px);
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .modal-body::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
 .modal-image {
@@ -2656,42 +2616,41 @@ body {
   }
 }
 
-/* Modal Responsive Design */
 @media (max-width: 768px) {
   .modal-content {
     width: 95%;
     max-height: 95vh;
   }
-  
+
   .modal-body {
     flex-direction: column;
     gap: 20px;
     padding: 20px;
   }
-  
+
   .modal-image {
     flex: 0 0 auto;
   }
-  
+
   .modal-header {
     padding: 20px 20px 15px;
   }
-  
+
   .modal-header h2 {
     font-size: 1.5rem;
   }
-  
+
   .modal-footer {
     flex-direction: column;
     gap: 20px;
     align-items: stretch;
     padding: 20px;
   }
-  
+
   .modal-actions {
     justify-content: center;
   }
-  
+
   .modal-btn {
     flex: 1;
     text-align: center;
