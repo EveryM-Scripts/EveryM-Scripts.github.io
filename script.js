@@ -102,7 +102,16 @@ const animateStats = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  renderFeaturedScripts();
+  setupModalListeners();
   animateStats();
+
+  // Re-render when language changes
+  document.addEventListener('everym:languagechange', () => {
+    renderProducts();
+    renderFeaturedScripts();
+  });
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -117,89 +126,129 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const scrollProgress = document.getElementById('scrollProgress');
-  if (scrollProgress) {
-    window.addEventListener('scroll', () => {
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercentage = (scrollTop / scrollHeight) * 100;
-      scrollProgress.style.width = scrollPercentage + '%';
-    });
-  }
+  let productModal = document.getElementById('productModal');
+  let modalOverlay = document.getElementById('modalOverlay');
+  let modalClose = document.getElementById('modalClose');
+  let modalTitle = document.getElementById('modalTitle');
+  let modalDescription = document.getElementById('modalDescription');
+  let modalFeatures = document.getElementById('modalFeatures');
+  let modalDetailsList = document.getElementById('modalDetailsList');
+  let modalPrice = document.getElementById('modalPrice');
+  let modalImage = document.getElementById('modalImage');
+  let modalDocsLink = document.getElementById('modalDocsLink');
 
-  const parallaxElements = document.querySelectorAll('.parallax');
-  if (parallaxElements.length > 0) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      parallaxElements.forEach(element => {
-        const speed = element.dataset.speed || 0.5;
-        element.style.transform = `translateY(${scrolled * speed}px)`;
+  let activeProductId = null;
+
+  // Render products dynamically from products.js
+  function renderProducts() {
+    const scriptsbox = document.getElementById('scriptsbox');
+    if (!scriptsbox || typeof PRODUCTS === 'undefined') return;
+
+    scriptsbox.innerHTML = PRODUCTS.map(product => {
+      const categoryAttr = product.categories.join(' ');
+      const imageHtml = product.image
+        ? `<div class="product-preview" style="background: url('${product.image}') no-repeat center/cover;"></div>`
+        : product.isSpecial
+          ? `<div id="everymmenuimg"></div>`
+          : `<div class="product-preview" style="background: ${product.gradient};"></div>`;
+
+      const featuresHtml = product.features.slice(0, 3).map(f =>
+        `<span class="feature-tag">${f}</span>`
+      ).join('');
+
+      return `
+        <div class="product" data-category="${categoryAttr}" data-product-id="${product.id}">
+          <div class="product-image">
+            ${imageHtml}
+          </div>
+          <div class="product-content">
+            <h3>${product.name}</h3>
+            <p class="product-description">${product.description}</p>
+            <div class="product-features">
+              ${featuresHtml}
+            </div>
+            <div class="product-footer">
+              <div class="product-price">$${product.price.toFixed(2)}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Re-attach event listeners to product cards
+    document.querySelectorAll('.product').forEach(card => {
+      card.addEventListener('click', function(e) {
+        e.preventDefault();
+        const productId = this.getAttribute('data-product-id');
+        openModal(productId);
       });
     });
   }
 
-  const productModal = document.getElementById('productModal');
-  const modalOverlay = document.getElementById('modalOverlay');
-  const modalClose = document.getElementById('modalClose');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalDescription = document.getElementById('modalDescription');
-  const modalFeatures = document.getElementById('modalFeatures');
-  const modalDetailsList = document.getElementById('modalDetailsList');
-  const modalPrice = document.getElementById('modalPrice');
-  const modalImage = document.getElementById('modalImage');
-  const modalDocsLink = document.getElementById('modalDocsLink');
+  // Render featured scripts on homepage
+  function renderFeaturedScripts() {
+    const featuredContainer = document.getElementById('featuredScripts');
+    if (!featuredContainer || typeof PRODUCTS === 'undefined') return;
 
-  const PRODUCT_META = {
-    adminMenu: {
-      price: '$15.99',
-      gradient: 'linear-gradient(135deg, #ff6b6b, #ee5a24)'
-    },
-    vehicleSystem: {
-      price: '$12.99',
-      gradient: 'linear-gradient(135deg, #4ecdc4, #44a08d)'
-    },
-    economyFramework: {
-      price: '$19.99',
-      gradient: 'linear-gradient(135deg, #667eea, #764ba2)'
-    },
-    uiFramework: {
-      price: '$8.99',
-      gradient: 'linear-gradient(135deg, #f093fb, #f5576c)'
-    },
-    funActivities: {
-      price: '$6.99',
-      gradient: 'linear-gradient(135deg, #fa709a, #fee140)'
-    },
-    everymMenu: {
-      price: '$24.99',
-      gradient: 'linear-gradient(135deg, #1e3c72, #2a5298)',
-      isSpecial: true
-    }
-  };
+    // Show first 4 products as featured
+    const featuredProducts = PRODUCTS.slice(0, 4);
 
-  let activeProductId = null;
+    featuredContainer.innerHTML = featuredProducts.map(product => {
+      const imageHtml = product.image
+        ? `background: url('${product.image}') no-repeat center/cover`
+        : `background: ${product.gradient}`;
 
-  function getProductTranslation(productId) {
-    if (window.EveryMI18n) return window.EveryMI18n.getProduct(productId);
-    return null;
+      return `
+        <div class="preview-card" data-product-id="${product.id}">
+          <div class="preview-image" style="${imageHtml};"></div>
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          <div class="preview-price">$${product.price.toFixed(2)}</div>
+          <div class="preview-rating">5.0</div>
+        </div>
+      `;
+    }).join('');
+
+    // Add click handlers to featured cards
+    featuredContainer.querySelectorAll('.preview-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const productId = this.getAttribute('data-product-id');
+        openModal(productId);
+      });
+      card.style.cursor = 'pointer';
+    });
   }
 
   function openModal(productId) {
+    productModal = document.getElementById('productModal');
     if (!productModal) return;
-    const meta = PRODUCT_META[productId];
-    const product = getProductTranslation(productId);
-    if (!meta || !product) return;
+
+    modalOverlay = document.getElementById('modalOverlay');
+    modalClose = document.getElementById('modalClose');
+    modalTitle = document.getElementById('modalTitle');
+    modalDescription = document.getElementById('modalDescription');
+    modalFeatures = document.getElementById('modalFeatures');
+    modalDetailsList = document.getElementById('modalDetailsList');
+    modalPrice = document.getElementById('modalPrice');
+    modalImage = document.getElementById('modalImage');
+    modalDocsLink = document.getElementById('modalDocsLink');
+
+    const product = ProductManager.getById(productId);
+    if (!product) return;
 
     activeProductId = productId;
-    modalTitle.textContent = product.title;
-    modalDescription.textContent = product.descLong || product.desc;
-    modalPrice.textContent = meta.price;
+    modalTitle.textContent = product.name;
+    modalDescription.textContent = product.longDescription || product.description;
+    modalPrice.textContent = `$${product.price.toFixed(2)}`;
 
-    if (meta.isSpecial) {
-      modalImage.style.background = meta.gradient;
+    if (product.isSpecial) {
+      modalImage.style.background = product.gradient;
       modalImage.innerHTML = '<div id="everymmenuimg" style="width: 100%; height: 100%;"></div>';
+    } else if (product.image) {
+      modalImage.style.background = `url('${product.image}') no-repeat center/cover`;
+      modalImage.innerHTML = '';
     } else {
-      modalImage.style.background = meta.gradient;
+      modalImage.style.background = product.gradient;
       modalImage.innerHTML = '';
     }
 
@@ -212,9 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ).join('');
 
     if (modalDocsLink) {
-      modalDocsLink.href = productId === 'everymMenu'
-        ? 'docs-everym-menu.html'
-        : 'docs-installation.html';
+      modalDocsLink.href = product.docsPage || 'docs-installation.html';
     }
 
     productModal.classList.add('active');
@@ -222,94 +269,52 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function closeModal() {
+    productModal = document.getElementById('productModal');
     if (!productModal) return;
     productModal.classList.remove('active');
     document.body.style.overflow = 'auto';
     activeProductId = null;
   }
 
-  if (productModal && modalClose && modalOverlay) {
-    document.querySelectorAll('.product-btn').forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.preventDefault();
-        const productCard = this.closest('.product');
-        const productId = productCard.getAttribute('data-product-id');
-        openModal(productId);
-      });
-    });
+  // Setup modal event listeners
+  function setupModalListeners() {
+    // Don't need to get elements here, they'll be fetched in openModal
+    const modalClose = document.getElementById('modalClose');
+    const modalOverlay = document.getElementById('modalOverlay');
 
-    document.addEventListener('everym:languagechange', () => {
-      if (activeProductId && productModal.classList.contains('active')) {
-        openModal(activeProductId);
-      }
-    });
+    if (modalClose) {
+      modalClose.addEventListener('click', closeModal);
+    }
 
-    modalClose.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', closeModal);
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', closeModal);
+    }
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && productModal.classList.contains('active')) {
+      const productModal = document.getElementById('productModal');
+      if (e.key === 'Escape' && productModal && productModal.classList.contains('active')) {
         closeModal();
       }
     });
   }
 
+  document.addEventListener('everym:languagechange', () => {
+    if (activeProductId && productModal && productModal.classList.contains('active')) {
+      openModal(activeProductId);
+    }
+  });
+
   const cards = document.querySelectorAll('.feature-card, .preview-card, .testimonial-card');
   cards.forEach(card => {
     card.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-10px) scale(1.02)';
+      this.style.transform = 'translateY(-4px)';
     });
 
     card.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0) scale(1)';
+      this.style.transform = 'translateY(0)';
     });
   });
 });
-
-const container = document.getElementById('discord-float-container');
-
-if (container) {
-  const logoCount = 12;
-  const logos = [];
-
-  for (let i = 0; i < logoCount; i++) {
-    const logo = document.createElement('div');
-    logo.classList.add('discord-logo');
-
-    const size = Math.random() * 40 + 30;
-    logo.style.width = `${size}px`;
-    logo.style.height = `${size}px`;
-
-    logo.x = Math.random() * window.innerWidth;
-    logo.y = Math.random() * window.innerHeight;
-    logo.vx = (Math.random() - 0.5) * 0.3;
-    logo.vy = (Math.random() - 0.5) * 0.3;
-    logo.rotation = Math.random() * 360;
-    logo.vr = (Math.random() - 0.5) * 0.2;
-
-    container.appendChild(logo);
-    logos.push(logo);
-  }
-
-  function animate() {
-    logos.forEach(logo => {
-      logo.x += logo.vx;
-      logo.y += logo.vy;
-      logo.rotation += logo.vr;
-
-      if (logo.x > window.innerWidth) logo.x = 0;
-      if (logo.x < 0) logo.x = window.innerWidth;
-      if (logo.y > window.innerHeight) logo.y = 0;
-      if (logo.y < 0) logo.y = window.innerHeight;
-
-      logo.style.transform = `translate(${logo.x}px, ${logo.y}px) rotate(${logo.rotation}deg)`;
-    });
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-}
 
 const DISCORD_URL = 'https://discord.com/invite/zgcXpcfHbA';
 const YOUTUBE_URL = 'https://www.youtube.com/@everym-scripts';
@@ -338,8 +343,10 @@ function applyProductFilters() {
   products.forEach(product => {
     const prodAttr = product.getAttribute('data-category') || '';
     const productCategories = prodAttr.split(/\s+/).filter(Boolean);
+
+    // Changed from some() to every() - product must match ALL selected filters
     const matchesFilter = activeFilters.length === 0 ||
-      activeFilters.some(filter => productCategories.includes(filter));
+      activeFilters.every(filter => productCategories.includes(filter));
 
     const title = product.querySelector('h3')?.textContent.toLowerCase() || '';
     const description = product.querySelector('.product-description')?.textContent.toLowerCase() || '';
@@ -385,6 +392,12 @@ document.addEventListener('DOMContentLoaded', () => {
         filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
       } else {
+        // Remove 'all' when selecting a specific filter
+        if (selectedFilters.has('all')) {
+          selectedFilters.delete('all');
+          if (allButton) allButton.classList.remove('active');
+        }
+
         if (selectedFilters.has(filter)) {
           selectedFilters.delete(filter);
           button.classList.remove('active');
@@ -393,11 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
           button.classList.add('active');
         }
 
-        if (selectedFilters.size > 1 && selectedFilters.has('all')) {
-          selectedFilters.delete('all');
-          if (allButton) allButton.classList.remove('active');
-        }
-
+        // If no filters selected, show all
         if (selectedFilters.size === 0) {
           selectedFilters.add('all');
           if (allButton) allButton.classList.add('active');

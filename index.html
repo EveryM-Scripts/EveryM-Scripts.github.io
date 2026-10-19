@@ -16,8 +16,6 @@
 
 <div id="background"></div>
 
-<div class="scroll-progress" id="scrollProgress"></div>
-
 <div id="headerbar">
     <a id="home" class="headerbtns" href="index.html" data-i18n="nav.home">Home</a>
     <a id="scripts" class="headerbtns" href="scripts.html" data-i18n="nav.scripts">Scripts</a>
@@ -116,35 +114,8 @@
   <div class="container">
     <h2 class="section-title" data-i18n="home.featuredTitle">Featured Scripts</h2>
     <p class="section-description" data-i18n="home.featuredDesc">Our most popular and highly-rated scripts that server owners love</p>
-    <div class="scripts-preview">
-      <div class="preview-card" data-product-id="adminMenu">
-        <div class="preview-image" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);"></div>
-        <h3>Advanced Admin Menu</h3>
-        <p>Complete server management with intuitive interface and powerful tools</p>
-        <div class="preview-price">$15.99</div>
-        <div class="preview-rating">5.0</div>
-      </div>
-      <div class="preview-card" data-product-id="vehicleSystem">
-        <div class="preview-image" style="background: linear-gradient(135deg, #4ecdc4, #44a08d);"></div>
-        <h3>Custom Vehicle System</h3>
-        <p>Enhanced vehicle management with customization and tracking features</p>
-        <div class="preview-price">$12.99</div>
-        <div class="preview-rating">4.9</div>
-      </div>
-      <div class="preview-card" data-product-id="economyFramework">
-        <div class="preview-image" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
-        <h3>Economy Framework</h3>
-        <p>Complete economic system with jobs, banking, and marketplace</p>
-        <div class="preview-price">$19.99</div>
-        <div class="preview-rating">4.8</div>
-      </div>
-      <div class="preview-card" data-product-id="uiFramework">
-        <div class="preview-image" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
-        <h3>Modern UI Framework</h3>
-        <p>Beautiful and responsive user interface components for your server</p>
-        <div class="preview-price">$8.99</div>
-        <div class="preview-rating">4.7</div>
-      </div>
+    <div class="scripts-preview" id="featuredScripts">
+      <!-- Featured scripts will be dynamically rendered here -->
     </div>
     <div class="text-center">
       <a href="scripts.html" class="btn-primary" data-i18n="common.viewAllScripts">View All Scripts</a>
@@ -253,6 +224,44 @@
   </div>
 </section>
 
+<div id="productModal" class="product-modal">
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modalTitle">Product Title</h2>
+      <button class="modal-close" id="modalClose">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-image">
+        <div id="modalImage"></div>
+      </div>
+      <div class="modal-info">
+        <p id="modalDescription">Product description goes here...</p>
+        <div class="modal-features" id="modalFeatures">
+          <span class="feature-tag">Feature 1</span>
+          <span class="feature-tag">Feature 2</span>
+          <span class="feature-tag">Feature 3</span>
+        </div>
+        <div class="modal-details">
+          <h3 data-i18n="common.productDetails">Product Details</h3>
+          <ul id="modalDetailsList">
+            <li>Detail 1</li>
+            <li>Detail 2</li>
+            <li>Detail 3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="modal-price" id="modalPrice">$0.00</div>
+      <div class="modal-actions">
+        <button class="modal-btn btn-primary dc-join-btn" data-i18n="common.purchaseDiscord">Purchase via Discord</button>
+        <a href="docs-everym-menu.html" class="modal-btn btn-secondary" id="modalDocsLink" data-i18n="common.viewDocs">View Docs</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="container">
     <div class="footer-content">
@@ -296,6 +305,7 @@
   </div>
 </footer>
 
+  <script src="products.js"></script>
   <script src="i18n.js" defer></script>
   <script src="script.js" defer></script>
 </body>
